@@ -1,0 +1,120 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RadioManager"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="RadioManager.MainWindow"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="315*"/>
+                <ColumnDefinition Width="40*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1"
+                       x:Name="windowTitle"
+                       HorizontalAlignment="Center" 
+                       TextAlignment="Center" 
+                       FontSize="20" 
+                       FontFamily="Roboto" 
+                       FontWeight="Bold" 
+                       Foreground="White" 
+                       Margin="10,15,10,0" 
+                       TextWrapping="Wrap" 
+                       Text="Window Title" 
+                       VerticalAlignment="Top" 
+                       Height="25" Width="613"/>
+            <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}">
+                <materialDesign:PackIcon 
+                    Kind="Home"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+
+        </Grid>
+        <Grid Width="80" HorizontalAlignment="Left" Background="#FFEB7A7A" Margin="0,50,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="136*"/>
+            </Grid.RowDefinitions>
+            <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="1">
+                <materialDesign:PackIcon 
+                    Kind="MusicNote"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+            <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="1">
+                <materialDesign:PackIcon 
+                    Kind="MusicNote"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+            <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="2">
+                <materialDesign:PackIcon 
+                    Kind="Artist"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+            <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="3">
+                <materialDesign:PackIcon 
+                    Kind="PlaylistMusic"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+
+        </Grid>
+    </Grid>
+
+</Window>
