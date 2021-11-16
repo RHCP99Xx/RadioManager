@@ -84,6 +84,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\BD\ConexionDB.cs" />
     <Compile Include="Models\POCO\Artista.cs" />
     <Compile Include="Models\POCO\Cancion.cs" />
     <Compile Include="Models\POCO\Categoria.cs" />
@@ -123,7 +124,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\BD\" />
     <Folder Include="Models\DAO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
