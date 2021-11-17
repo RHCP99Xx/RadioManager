@@ -148,5 +148,50 @@ namespace RadioManager.Models.DAO
             }
             return artista;
         }
+
+        public bool registrarArtista(Artista artista)
+        {
+            bool registrado = false;
+            MySqlConnection conn = null;
+            try
+            {
+                conn = ConexionDB.getConnection();
+                if (conn != null)
+                {
+                    using (MySqlCommand command = new MySqlCommand("INSERT INTO radio_manager.cantante VALUES(NULL, '" + artista.NombreArtistico + "', " + "@data" + ", '"+ artista.Descripcion + "', TRUE);", conn))
+                    {
+                        command.Parameters.AddWithValue("@data", artista.Fotografia);
+                        command.ExecuteNonQuery();
+                    }
+
+                    /*MySqlCommand command;
+                    MySqlDataReader dataReader;
+                    String query = String.Format("INSERT INTO radio_manager.cantante VALUES (NULL,'{0}',[{1}],'{2}',TRUE);",
+                        artista.NombreArtistico, artista.Fotografia, artista.Descripcion);
+                    command = new MySqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+                    while (dataReader.Read())
+                        dataReader.Close();
+                    command.Dispose();*/
+
+                    registrado = true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nExcepción ArtisTaDAO registrarArtista");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return registrado;
+        }
     }
 }

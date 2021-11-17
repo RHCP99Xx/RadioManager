@@ -118,7 +118,10 @@ namespace RadioManager.GUI
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
-
+            RegistrarArtista registrar = new RegistrarArtista();
+            registrar.Owner = this;
+            registrar.Show();
+            this.Hide();
         }
     }
 }

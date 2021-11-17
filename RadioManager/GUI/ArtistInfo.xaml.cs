@@ -20,9 +20,24 @@ namespace RadioManager.GUI
     /// </summary>
     public partial class ArtistInfo : Window
     {
+        Artista artistaSeleccionado = new Artista();
+
         public ArtistInfo(Artista artista)
         {
             InitializeComponent();
+            artistaSeleccionado = artista;
+            mostrarInfoArtista();
+        }
+
+        private void mostrarInfoArtista()
+        {
+
+        }
+
+        private void btn_Regresar_Click(object sender, RoutedEventArgs e)
+        {
+            Owner.Show();
+            this.Close();
         }
     }
 }
