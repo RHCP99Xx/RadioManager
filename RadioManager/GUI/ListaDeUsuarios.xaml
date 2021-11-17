@@ -81,7 +81,7 @@
                     Margin="20,10,0,0" 
                     VerticalAlignment="Top" 
                     Width="35" 
-                    RenderTransformOrigin="0.133,-0.156" 
+                    RenderTransformOrigin="0.133,-0.156"
                     Height="35" Background="{x:Null}" Grid.Row="1">
                 <materialDesign:PackIcon 
                     Kind="MusicNote"
@@ -89,6 +89,9 @@
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Center" 
                     Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+                <Button.ToolTip>
+                       Canciones
+                </Button.ToolTip>
             </Button>
             <Button BorderBrush="{x:Null}" 
                     HorizontalAlignment="Left"
@@ -104,6 +107,9 @@
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Center" 
                     Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+                <Button.ToolTip>
+                    Artistas
+                </Button.ToolTip>
             </Button>
             <Button BorderBrush="{x:Null}" 
                     HorizontalAlignment="Left"
@@ -119,6 +125,9 @@
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Center" 
                     Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+                <Button.ToolTip>
+                    Géneros
+                </Button.ToolTip>
             </Button>
 
         </Grid>
@@ -166,6 +175,23 @@
                 Kind="Search"
                 Foreground="#676767"
                 VerticalAlignment="Top"/>
+
+            <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="10,30,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35"
+                    materialDesign:ButtonAssist.CornerRadius="50"
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="#EB7A7A" Grid.Column="1">
+                <materialDesign:PackIcon 
+                    Kind="Plus"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
         </Grid>
     </Grid>
 </Window>

@@ -22,6 +22,7 @@ namespace RadioManager.GUI
         public ListaDeUsuarios()
         {
             InitializeComponent();
+            this.windowTitle.Text = "Usuarios";
         }
     }
 }

@@ -115,5 +115,139 @@
             </Button>
 
         </Grid>
+        <Grid HorizontalAlignment="Left" Height="369" Margin="80,50,0,0" VerticalAlignment="Top" Width="712">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="295*"/>
+                <ColumnDefinition Width="382*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="85*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="84*"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                x:Name="identifierText"
+                Grid.Column="1"
+                Foreground="#676767"
+                FontFamily="Roboto"
+                FontWeight="Bold"
+                FontSize="40"
+                HorizontalAlignment="Left" 
+                Margin="0,10,0,0" 
+                TextWrapping="Wrap" 
+                Text="TextBlock" 
+                VerticalAlignment="Top" 
+                Height="60"
+                TextAlignment="Center"
+                Width="295"/>
+            <Label
+                Content="Nombre:"
+                FontFamily="Roboto"
+                FontWeight="DemiBold"
+                FontSize="18"
+                Foreground="#676767"
+                Grid.Column="1" 
+                HorizontalAlignment="Left" 
+                Margin="50,10,0,0" 
+                Grid.Row="1" 
+                VerticalAlignment="Top" 
+                Height="30" 
+                Width="195"/>
+            <Label
+                Content="Correo:"
+                FontFamily="Roboto"
+                FontWeight="DemiBold"
+                FontSize="18"
+                Foreground="#676767"
+                Grid.Column="1" 
+                HorizontalAlignment="Left" 
+                Margin="50,10,0,0" 
+                Grid.Row="2" 
+                VerticalAlignment="Top" 
+                Height="30" 
+                Width="195"/>
+            <Label
+                Content="Tipo de usuario:"
+                FontFamily="Roboto"
+                FontWeight="DemiBold"
+                FontSize="18"
+                Foreground="#676767"
+                Grid.Column="1" 
+                HorizontalAlignment="Left" 
+                Margin="50,10,0,0" 
+                Grid.Row="3" 
+                VerticalAlignment="Top" 
+                Height="30" 
+                Width="195"/>
+            <Label
+                Content="Estado:"
+                FontFamily="Roboto"
+                FontWeight="DemiBold"
+                FontSize="18"
+                Foreground="#676767"
+                Grid.Column="1" 
+                HorizontalAlignment="Left" 
+                Margin="50,10,0,0" 
+                Grid.Row="4" 
+                VerticalAlignment="Top" 
+                Height="30" 
+                Width="195"/>
+            <Label
+                x:Name="nameLabel"
+                FontFamily="Roboto"
+                FontWeight="DemiBold"
+                FontSize="18"
+                Foreground="#676767"
+                Grid.Column="2" 
+                HorizontalAlignment="Left" 
+                Margin="10,10,0,0" 
+                Grid.Row="1" 
+                VerticalAlignment="Top" 
+                Height="30" 
+                Width="195"/>
+            <Label
+                x:Name="emailLabel"
+                FontFamily="Roboto"
+                FontWeight="DemiBold"
+                FontSize="18"
+                Foreground="#676767"
+                Grid.Column="2" 
+                HorizontalAlignment="Left" 
+                Margin="10,10,0,0" 
+                Grid.Row="2" 
+                VerticalAlignment="Top" 
+                Height="30" 
+                Width="195"/>
+            <Label
+                x:Name="userTypeLabel"
+                FontFamily="Roboto"
+                FontWeight="DemiBold"
+                FontSize="18"
+                Foreground="#676767"
+                Grid.Column="2" 
+                HorizontalAlignment="Left" 
+                Margin="10,10,0,0" 
+                Grid.Row="3" 
+                VerticalAlignment="Top" 
+                Height="30" 
+                Width="195"/>
+            <Label
+                x:Name="statusLabel"
+                FontFamily="Roboto"
+                FontWeight="DemiBold"
+                FontSize="18"
+                Foreground="#676767"
+                Grid.Column="2" 
+                HorizontalAlignment="Left" 
+                Margin="10,10,0,0" 
+                Grid.Row="4" 
+                VerticalAlignment="Top" 
+                Height="30" 
+                Width="195"/>
+        </Grid>
     </Grid>
 </Window>
