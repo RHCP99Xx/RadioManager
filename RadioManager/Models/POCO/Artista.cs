@@ -10,13 +10,13 @@ namespace RadioManager.Models.POCO
     {
         private int idArtista;
         private string nombreArtistico;
-        private string fotografia;
+        private byte[] fotografia;
         private string descripcion;
         private bool activo;
 
         public int IdArtista { get => idArtista; set => idArtista = value; }
         public string NombreArtistico { get => nombreArtistico; set => nombreArtistico = value; }
-        public string Fotografia { get => fotografia; set => fotografia = value; }
+        public byte[] Fotografia { get => fotografia; set => fotografia = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public bool Activo { get => activo; set => activo = value;  }
     }
