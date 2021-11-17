@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MySql.Data.MySqlClient;
+using RadioManager.Models.BD;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace RadioManager.GUI
 {
@@ -29,6 +21,18 @@ namespace RadioManager.GUI
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
+
+            try
+            {
+                MySqlConnection conn = null;
+                conn = ConexionDB.getConnection();
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
