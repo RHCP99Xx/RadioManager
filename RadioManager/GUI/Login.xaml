@@ -11,7 +11,7 @@
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}"
+        FontFamily="Roboto"
 
     mc:Ignorable="d"
         Title="Login" Height="640" Width="480">
