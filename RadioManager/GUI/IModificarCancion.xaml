@@ -1,0 +1,185 @@
+﻿<Window x:Class="RadioManager.GUI.IModificarCancion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RadioManager.GUI"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="IModificarCancion" Height="450" Width="800">
+    <Grid>
+        <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="315*"/>
+                <ColumnDefinition Width="40*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1"
+                       x:Name="titleCanciones"
+                       HorizontalAlignment="Center" 
+                       TextAlignment="Center" 
+                       FontSize="20" 
+                       FontFamily="Roboto" 
+                       FontWeight="Bold" 
+                       Foreground="White" 
+                       Margin="10,15,10,0" 
+                       TextWrapping="Wrap" 
+                       Text="Editar canción" 
+                       VerticalAlignment="Top" 
+                       Height="25" Width="613"/>
+            <Button BorderBrush="{x:Null}" 
+                    x:Name="btnHome"
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}"
+                    Click="btnHome_Click"
+                    Cursor="Hand">
+                <materialDesign:PackIcon 
+                    Kind="Home"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+        </Grid>
+        <Grid Width="80" HorizontalAlignment="Left" Background="#FFEB7A7A" Margin="0,50,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="136*"/>
+            </Grid.RowDefinitions>
+            <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="1"
+                    IsEnabled="False">
+                <materialDesign:PackIcon 
+                    Kind="MusicNote"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+            <Button BorderBrush="{x:Null}" 
+                    x:Name="btnArtista"
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="2"
+                    Click="btnArtista_Click"
+                    Cursor="Hand">
+                <materialDesign:PackIcon 
+                    Kind="Artist"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+            <Button BorderBrush="{x:Null}"
+                    x:Name="btnPatrones"
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="3"
+                    Click="btnPatrones_Click"
+                    Cursor="Hand">
+                <materialDesign:PackIcon 
+                    Kind="PlaylistMusic"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+        </Grid>
+        <TextBox x:Name="txtTituloCancion" 
+                materialDesign:HintAssist.Hint="Título de la canción"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" Margin="111,72,441,313" FontFamily="Roboto"  />
+        <TextBox x:Name="txtClaveCancion" 
+                materialDesign:HintAssist.Hint="Clave de la canción"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" Margin="111,127,441,258" FontFamily="Roboto" />
+        <ComboBox
+            x:Name="comboArtista"
+              materialDesign:HintAssist.Hint="Artista"
+              materialDesign:HintAssist.FloatingScale="1.5"
+              materialDesign:HintAssist.FloatingOffset="0, -24"
+              MinWidth="72"
+              ItemsSource="{Binding LongListToTestComboVirtualization}"
+              Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="111,190,441,195" FontFamily="Roboto" FontSize="16" />
+        <ComboBox
+            x:Name="comboGenero"
+              materialDesign:HintAssist.Hint="Género"
+              materialDesign:HintAssist.FloatingScale="1.5"
+              materialDesign:HintAssist.FloatingOffset="0, -24"
+              MinWidth="72"
+              ItemsSource="{Binding LongListToTestComboVirtualization}"
+              Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="111,258,441,127" FontFamily="Roboto" FontSize="16" />
+        <ComboBox
+            x:Name="comboCategoria"
+              materialDesign:HintAssist.Hint="Categoría"
+              materialDesign:HintAssist.FloatingScale="1.5"
+              materialDesign:HintAssist.FloatingOffset="0, -24"
+              MinWidth="72"
+              ItemsSource="{Binding LongListToTestComboVirtualization}"
+              Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="111,325,441,60" FontFamily="Roboto" FontSize="16" />
+        <Button
+            x:Name="btnGuardarCancion"
+            Click="btnGuardarCancion_Click"
+            Cursor="Hand"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            materialDesign:ButtonAssist.CornerRadius="25"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="426,327,279,60" Background="White" BorderBrush="#FFEB7A7A" Foreground="#FFEB7A7A">
+            <TextBlock Text="Guardar" />
+        </Button>
+        <Button
+            x:Name="btnSalirModificarCancion"
+            Click="btnSalirModificarCancion_Click"
+            Cursor="Hand"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            materialDesign:ButtonAssist.CornerRadius="25"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="688,327,10,60" Background="White" BorderBrush="#FFEB7A7A" Foreground="#FFEB7A7A">
+            <TextBlock Text="Regresar" />
+        </Button>
+        <Button
+            x:Name="btnSeleccionarImagen"
+            Click="btnSeleccionarImagen_Click"
+            Cursor="Hand"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            materialDesign:ButtonAssist.CornerRadius="25"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="545,77,124,310" Background="White" BorderBrush="#FFEB7A7A" Foreground="#FFEB7A7A">
+            <TextBlock Text="Buscar" />
+        </Button>
+        <Button
+            x:Name="btnInhabilitarCancion"
+            Click="btnInhabilitarCancion_Click"
+            Cursor="Hand"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            materialDesign:ButtonAssist.CornerRadius="25"
+            ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="557,327,139,60" Background="White" BorderBrush="#FFEB7A7A" Foreground="#FFEB7A7A">
+            <TextBlock Text="Inhabilitar" />
+        </Button>
+        <Image x:Name="imagenCancion" HorizontalAlignment="Left" Height="165" Margin="523,127,0,0" VerticalAlignment="Top" Width="165"/>
+    </Grid>
+</Window>

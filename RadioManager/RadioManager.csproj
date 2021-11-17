@@ -63,6 +63,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="GUI\IConsultarCancion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\IMenuCanciones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\IModificarCancion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\IRegistrarCancion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -74,6 +90,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\IConsultarCancion.xaml.cs">
+      <DependentUpon>IConsultarCancion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\IMenuCanciones.xaml.cs">
+      <DependentUpon>IMenuCanciones.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\IModificarCancion.xaml.cs">
+      <DependentUpon>IModificarCancion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\IRegistrarCancion.xaml.cs">
+      <DependentUpon>IRegistrarCancion.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>

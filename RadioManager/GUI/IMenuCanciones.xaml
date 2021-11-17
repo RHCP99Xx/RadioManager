@@ -1,0 +1,163 @@
+﻿<Window x:Class="RadioManager.GUI.IMenuCanciones"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RadioManager.GUI"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        Title="IMenuCanciones" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid>
+
+        <TextBox x:Name="txtBuscarCancion" 
+                 TextChanged="txtBuscarCancion_TextChanged"
+                materialDesign:HintAssist.Hint="Buscar canción"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" Margin="534,67,18,317"  />
+        <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="315*"/>
+                <ColumnDefinition Width="40*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1"
+                       x:Name="titleCanciones"
+                       HorizontalAlignment="Center" 
+                       TextAlignment="Center" 
+                       FontSize="20" 
+                       FontFamily="Roboto" 
+                       FontWeight="Bold" 
+                       Foreground="White" 
+                       Margin="10,15,10,0" 
+                       TextWrapping="Wrap" 
+                       Text="Canciones" 
+                       VerticalAlignment="Top" 
+                       Height="25" Width="613"/>
+            <Button BorderBrush="{x:Null}" 
+                    x:Name="btnHome"
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}"
+                    Click="btnHome_Click"
+                    Cursor="Hand">
+                <materialDesign:PackIcon 
+                    Kind="Home"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+        </Grid>
+        <Grid Width="80" HorizontalAlignment="Left" Background="#FFEB7A7A" Margin="0,50,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="136*"/>
+            </Grid.RowDefinitions>
+            <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="1"
+                    IsEnabled="False">
+                <materialDesign:PackIcon 
+                    Kind="MusicNote"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+            <Button BorderBrush="{x:Null}" 
+                    x:Name="btnArtista"
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="2"
+                    Click="btnArtista_Click"
+                    Cursor="Hand">
+                <materialDesign:PackIcon 
+                    Kind="Artist"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+            <Button BorderBrush="{x:Null}"
+                    x:Name="btnPatrones"
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="3"
+                    Click="btnPatrones_Click"
+                    Cursor="Hand">
+                <materialDesign:PackIcon 
+                    Kind="PlaylistMusic"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+        </Grid>
+        <ListView x:Name="listaCanciones" HorizontalAlignment="Left" Height="283" Margin="94,117,0,0" VerticalAlignment="Top" Width="682" ItemsSource="{Binding Canciones}" BorderThickness="1" BorderBrush="Black" MouseDoubleClick="listaCanciones_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Título de la canción" DisplayMemberBinding="{Binding Titulo}" Width="auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button BorderBrush="{x:Null}" 
+                x:Name="btnAgregarCancion"
+                Cursor="Hand"
+                Click="btnAgregarCancion_Click"
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="94,67,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35"
+                    materialDesign:ButtonAssist.CornerRadius="50"
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="#EB7A7A">
+            <materialDesign:PackIcon 
+                    Kind="Plus"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+        </Button>
+        <Button BorderBrush="{x:Null}" 
+                x:Name="btnCancionAlAire"
+                Click="btnCancionAlAire_Click"
+                Cursor="Hand"
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="173,67,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35"
+                    materialDesign:ButtonAssist.CornerRadius="50"
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="#EB7A7A">
+            <materialDesign:PackIcon 
+                    Kind="PlaylistCheck"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+        </Button>
+    </Grid>
+</Window>
