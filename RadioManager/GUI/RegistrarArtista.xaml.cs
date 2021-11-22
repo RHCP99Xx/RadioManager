@@ -39,7 +39,7 @@ namespace RadioManager.GUI
 
             op.Multiselect = false;
             op.Title = "Selecciona una fotografía del artista";
-            op.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            op.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png)";
 
             if (op.ShowDialog() == true)
             {
@@ -49,7 +49,7 @@ namespace RadioManager.GUI
 
                 if (infoImagen.Length > 64000)
                 {
-                    MessageBox.Show("La imagen excede los 50 KB");
+                    MessageBox.Show("La imagen excede los 50 KB");                   
                 }
             }
 
@@ -58,6 +58,8 @@ namespace RadioManager.GUI
                 ImageBrush imageBrush = new ImageBrush();
                 imageBrush.ImageSource = new BitmapImage(new Uri(imagenSeleccionada));
                 ellipseFoto.Fill = imageBrush;
+
+                iconoFoto.Visibility = Visibility.Hidden;
             }
         }
 

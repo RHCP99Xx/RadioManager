@@ -152,6 +152,7 @@
 
 
         <Ellipse x:Name="ellipseFoto" Fill="#FFF0F0F0" HorizontalAlignment="Left" Height="236" Margin="120,111,0,0" Stroke="#FFEB7A7A" VerticalAlignment="Top" Width="260" StrokeThickness="3" />
+        <materialDesign:PackIcon x:Name="iconoFoto" Kind="User" HorizontalAlignment="Left" Margin="120,88,0,0" VerticalAlignment="Top" RenderTransformOrigin="-17.188,-2.925" Height="274" Width="260" Foreground="#FF8A939C" Visibility="Visible"/>
         <Button x:Name="btn_SubirImagen" HorizontalAlignment="Left" Margin="193,182,0,0" VerticalAlignment="Top" Width="115" BorderThickness="3"
                 Cursor="Hand"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"

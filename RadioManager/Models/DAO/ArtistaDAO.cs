@@ -164,16 +164,6 @@ namespace RadioManager.Models.DAO
                         command.ExecuteNonQuery();
                     }
 
-                    /*MySqlCommand command;
-                    MySqlDataReader dataReader;
-                    String query = String.Format("INSERT INTO radio_manager.cantante VALUES (NULL,'{0}',[{1}],'{2}',TRUE);",
-                        artista.NombreArtistico, artista.Fotografia, artista.Descripcion);
-                    command = new MySqlCommand(query, conn);
-                    dataReader = command.ExecuteReader();
-                    while (dataReader.Read())
-                        dataReader.Close();
-                    command.Dispose();*/
-
                     registrado = true;
                 }
             }
@@ -192,6 +182,42 @@ namespace RadioManager.Models.DAO
             }
 
             return registrado;
+        }
+
+        public bool editarArtista(Artista artista)
+        {
+            bool artistaEditado = false;
+
+            MySqlConnection conn = null;
+            try
+            {
+                conn = ConexionDB.getConnection();
+                if (conn != null)
+                {
+                    using (MySqlCommand command = new MySqlCommand("UPDATE `radio_manager`.`cantante` SET `nombreArtistico` = '" + artista.NombreArtistico + "', `fotografia` = " + "@data" + ", `descripcion` = '" + artista.Descripcion + "', `activo` = " + artista.Activo + " WHERE `idCantante` = " + artista.IdArtista + ";", conn))
+                        {
+                            command.Parameters.AddWithValue("@data", artista.Fotografia);
+                            command.ExecuteNonQuery();
+                    }
+
+                    artistaEditado = true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nExcepción ArtisTaDAO editarArtista");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return artistaEditado;
         }
     }
 }
