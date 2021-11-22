@@ -118,6 +118,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\EditarArtista.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="GUI\ListaDeUsuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -158,6 +162,9 @@
     </Compile>
     <Compile Include="GUI\DetallesDeUsuario.xaml.cs">
       <DependentUpon>DetallesDeUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\EditarArtista.xaml.cs">
+      <DependentUpon>EditarArtista.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\ListaDeUsuarios.xaml.cs">
       <DependentUpon>ListaDeUsuarios.xaml</DependentUpon>

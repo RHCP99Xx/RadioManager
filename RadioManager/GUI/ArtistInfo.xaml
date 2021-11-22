@@ -125,7 +125,24 @@
         </Button>
 
 
-        <Ellipse x:Name="ellipseFoto" Fill="#FFF0F0F0" HorizontalAlignment="Left" Height="96" Margin="120,55,0,0" Stroke="#FFEB7A7A" VerticalAlignment="Top" Width="96" StrokeThickness="3" />
-        <Label Content="Nombre del artista" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="239,72,0,0" VerticalAlignment="Top" FontSize="36" Width="515" Foreground="#FF8A939C" Height="69" FontWeight="Bold"/>
+        <Ellipse x:Name="ellipseFoto" Fill="#FFF0F0F0" HorizontalAlignment="Left" Height="96" Margin="120,63,0,0" Stroke="#FFEB7A7A" VerticalAlignment="Top" Width="96" StrokeThickness="3" />
+        <Label x:Name="lblNombre" Content="Nombre del artista" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="231,81,0,0" VerticalAlignment="Top" FontSize="48" Width="515" Foreground="#FFEB7A7A" Height="69" FontWeight="Bold"/>
+        <Label Content="Estado:" HorizontalAlignment="Left" Margin="120,178,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" RenderTransformOrigin="2.232,0.659"/>
+        <Label x:Name="lblEstado"  Content="Estado" HorizontalAlignment="Left" Margin="195,178,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="2.232,0.659" Width="105"/>
+        <TextBlock x:Name="textBlockDescripcion" HorizontalAlignment="Left" Margin="124,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="132" Width="320" FontSize="14"><Run Text="Descripción del artista"/></TextBlock>
+        <ListView x:Name="lvCanciones" ItemsSource="{Binding Canciones}" HorizontalAlignment="Left" Height="169" Margin="444,178,0,0" VerticalAlignment="Top" Width="312" FontSize="14">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Canciones" DisplayMemberBinding="{Binding Nombre}" Width="auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <materialDesign:PackIcon x:Name="iconoFoto" Kind="User" HorizontalAlignment="Left" Margin="134,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="-17.188,-2.925" Height="65" Width="68" Foreground="#FF8A939C" Visibility="Hidden"/>
+        <Button x:Name="btn_Editar" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="96" BorderThickness="2" Content="Editar"
+            Cursor="Hand"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            materialDesign:ButtonAssist.CornerRadius="25"
+            Height="38" Background="#FFEB7A7A" BorderBrush="#FFEB7A7A"
+            Click="btn_Editar_Click" Foreground="White" Margin="658,367,0,0"/>
     </Grid>
 </Window>
