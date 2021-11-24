@@ -110,6 +110,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\EditarPrograma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\FormularioPrograma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +132,9 @@
     </Compile>
     <Compile Include="GUI\DetallesPrograma.xaml.cs">
       <DependentUpon>DetallesPrograma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\EditarPrograma.xaml.cs">
+      <DependentUpon>EditarPrograma.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormularioPrograma.xaml.cs">
       <DependentUpon>FormularioPrograma.xaml</DependentUpon>

@@ -61,7 +61,7 @@ namespace RadioManager.GUI
 
             if (lvProgramas.SelectedItem != null)
             {
-                DetallesPrograma detallesPrograma = new DetallesPrograma();
+                DetallesPrograma detallesPrograma = new DetallesPrograma(programa);
                 detallesPrograma.Owner = this;
                 detallesPrograma.Show();
                 this.Hide();
@@ -72,7 +72,7 @@ namespace RadioManager.GUI
             }
         }
 
-        private void txtBusqueda_TextChanged(object sender, TextChangedEventArgs e)
+        /*private void txtBusqueda_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtBusqueda.Text))
             {
@@ -113,7 +113,7 @@ namespace RadioManager.GUI
                     mostrarProgramas();
                 }
             }
-        }
+        }*/
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {

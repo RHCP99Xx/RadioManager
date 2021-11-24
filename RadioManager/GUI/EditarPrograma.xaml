@@ -1,4 +1,4 @@
-﻿<Window x:Class="RadioManager.GUI.DetallesPrograma"
+﻿<Window x:Class="RadioManager.GUI.EditarPrograma"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RadioManager.GUI"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="DetallesPrograma" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="EditarPrograma" Height="450" Width="800">
     <Grid>
         <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">
             <Grid.ColumnDefinitions>
@@ -24,22 +24,9 @@
                        Foreground="White" 
                        Margin="10,15,10,0" 
                        TextWrapping="Wrap" 
-                       Text="PROGRAMA" 
+                       Text="Registrar Programa" 
                        VerticalAlignment="Top" 
                        Height="25" Width="613"/>
-            <TextBlock Grid.Column="1"
-                       x:Name="nombrePrograma"
-                       HorizontalAlignment="Center" 
-                       TextAlignment="Center" 
-                       FontSize="20" 
-                       FontFamily="Roboto" 
-                       FontWeight="Bold" 
-                       Foreground="#FFEB7A7A" 
-                       Margin="10,148,59,-124" 
-                       TextWrapping="Wrap" 
-                       Text="PROGRAMA" 
-                       VerticalAlignment="Top" 
-                       Height="26" Width="564"/>
             <Button BorderBrush="{x:Null}" 
                     HorizontalAlignment="Left"
                     Padding="0"
@@ -55,19 +42,6 @@
                     HorizontalAlignment="Center" 
                     Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
             </Button>
-            <TextBlock Grid.Column="1"
-                x:Name="estado"
-                HorizontalAlignment="Center" 
-                TextAlignment="Center" 
-                FontSize="20" 
-                FontFamily="Roboto" 
-                FontWeight="Bold" 
-                Foreground="#FFEB7A7A" 
-                Margin="10,278,59,-254" 
-                TextWrapping="Wrap" 
-                Text="PROGRAMA" 
-                VerticalAlignment="Top" 
-                Height="26" Width="564"/>
 
         </Grid>
         <Grid Width="80" HorizontalAlignment="Left" Background="#FFEB7A7A" Margin="0,50,0,0">
@@ -141,23 +115,57 @@
             </Button>
 
         </Grid>
+        <TextBox x:Name="txtNombre"
+            materialDesign:HintAssist.Hint="Nombre del programa"
+            materialDesign:HintAssist.HelperText="Introduzca el nombre del programa"
+            Margin="266,59,0,329" HorizontalAlignment="Left" Width="324" />
+
+        <ComboBox x:Name="cbEstado"
+            materialDesign:HintAssist.Hint="Estado del programa"
+            materialDesign:HintAssist.HelperText="Seleccione una opción"
+            Margin="266,118,0,269" HorizontalAlignment="Left" Width="324">
+            <ComboBoxItem
+                Content="Activo" />
+            <ComboBoxItem
+                Content="Inactivo" />
+        </ComboBox>
+        <Label Content="Hora de Inicio" Margin="266,174,409,214" Foreground="Gray"/>
+
+        <materialDesign:TimePicker
+            Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+            materialDesign:HintAssist.Hint="Selecciona una Hr" 
+            Margin="266,211,379,148" x:Name="hrInicio" Height="60"
+            Is24Hours="True"/>
+
+        <Label Content="Hora de Fin" Margin="443,172,232,216" Foreground="Gray"/>
+        <materialDesign:TimePicker
+            Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+            materialDesign:HintAssist.Hint="Selecciona una Hr" 
+            Margin="443,211,202,148" x:Name="hrFin" Height="60"
+            Is24Hours="True"/>
         <Button
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
             ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
-            x:Name="btnEditar"
-            Content="Modificar"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="665,82,25,300" Height="Auto" Background="#FFEB7A7A" BorderBrush="#FFEB7A7A" Click="btnEditar_Click" />
+            x:Name="btnGuardar"
+            Content="Guardar"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="666,68,26,316" Height="Auto" Background="#FFEB7A7A" BorderBrush="#FFEB7A7A" Click="btnGuardar_Click" />
         <Button
             Style="{StaticResource MaterialDesignPaperDarkButton}"
             ToolTip="Resource name: MaterialDesignPaperDarkButton"
-            Content="Regresar"
+            Content="Cancelar"
             x:Name="btnCancelar"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Height="Auto" Margin="665,372,25,10" BorderBrush="#FFEB7A7A" Click="btnCancelar_Click" />
-        <Button
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
-            x:Name="btnEliminar"
-            Content="Eliminar"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="665,157,25,225" Height="Auto" Background="#FFEB7A7A" BorderBrush="#FFEB7A7A" Click="btnEliminar_Click" />
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Height="Auto" Margin="666,330,26,54" BorderBrush="#FFEB7A7A" Click="btnCancelar_Click"/>
+
+        <Label Content="Comerciales" Margin="266,276,451,112" Foreground="Gray"/>
+        <TextBox
+            materialDesign:HintAssist.Hint="Comerciales del programa"
+            materialDesign:HintAssist.HelperText="Introduzca cantidad"
+            Margin="270,307,0,81" HorizontalAlignment="Left" Width="143" />
+
+        <Label Content="Canciones" Margin="443,276,274,112" Foreground="Gray"/>
+        <TextBox
+            materialDesign:HintAssist.Hint="Canciones del programa"
+            materialDesign:HintAssist.HelperText="Introduzca cantidad"
+            Margin="443,307,0,81" HorizontalAlignment="Left" Width="147" />
     </Grid>
 </Window>
