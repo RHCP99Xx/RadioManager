@@ -118,9 +118,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+
     <Page Include="GUI\EditarUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+
+    <Page Include="GUI\EditarArtista.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="GUI\ListaDeUsuarios.xaml">
       <SubType>Designer</SubType>
@@ -131,6 +136,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\IConsultarCancion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\IMenuCanciones.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\IModificarCancion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\IRegistrarCancion.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -147,8 +168,13 @@
     <Compile Include="GUI\DetallesDeUsuario.xaml.cs">
       <DependentUpon>DetallesDeUsuario.xaml</DependentUpon>
     </Compile>
+
     <Compile Include="GUI\EditarUsuario.xaml.cs">
       <DependentUpon>EditarUsuario.xaml</DependentUpon>
+
+    <Compile Include="GUI\EditarArtista.xaml.cs">
+      <DependentUpon>EditarArtista.xaml</DependentUpon>
+
     </Compile>
     <Compile Include="GUI\ListaDeUsuarios.xaml.cs">
       <DependentUpon>ListaDeUsuarios.xaml</DependentUpon>
@@ -160,10 +186,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+
     <Page Include="GUI\MenuAdministrador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="GUI\IConsultarCancion.xaml.cs">
+      <DependentUpon>IConsultarCancion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\IMenuCanciones.xaml.cs">
+      <DependentUpon>IMenuCanciones.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\IModificarCancion.xaml.cs">
+      <DependentUpon>IModificarCancion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\IRegistrarCancion.xaml.cs">
+      <DependentUpon>IRegistrarCancion.xaml</DependentUpon>
+    </Compile>
     <Page Include="GUI\RegistrarArtista.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

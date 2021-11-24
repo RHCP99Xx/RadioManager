@@ -54,25 +54,6 @@ namespace RadioManager.GUI
             }
         }
 
-        private void lvArtistas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            var artistaSeleccionado = (TablaArtistas)lvArtistas.SelectedItem;
-            ArtistaDAO artistaDAO = new ArtistaDAO();
-            Artista artista = artistaDAO.getArtistaPorId(artistaSeleccionado.IdArtista);
-
-            if (lvArtistas.SelectedItem != null)
-            {
-                ArtistInfo artistInfo = new ArtistInfo(artista);
-                artistInfo.Owner = this;
-                artistInfo.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Escoja un artista", "ERROR");
-            }
-        }
-
         private void txtBusqueda_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtBusqueda.Text))
@@ -122,6 +103,25 @@ namespace RadioManager.GUI
             registrar.Owner = this;
             registrar.Show();
             this.Hide();
+        }
+
+        private void lvArtistas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var artistaSeleccionado = (TablaArtistas)lvArtistas.SelectedItem;
+            ArtistaDAO artistaDAO = new ArtistaDAO();
+            Artista artista = artistaDAO.getArtistaPorId(artistaSeleccionado.IdArtista);
+
+            if (lvArtistas.SelectedItem != null)
+            {
+                ArtistInfo artistInfo = new ArtistInfo(artista);
+                artistInfo.Owner = this;
+                artistInfo.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Escoja un artista", "ERROR");
+            }
         }
     }
 }
