@@ -13,7 +13,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="ListaDeUsuarios" Height="450" Width="800" ResizeMode="NoResize">
+        Title="ListaDeUsuarios" Height="566" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">
             <Grid.ColumnDefinitions>
@@ -90,7 +90,7 @@
                     HorizontalAlignment="Center" 
                     Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
                 <Button.ToolTip>
-                       Canciones
+                    Canciones
                 </Button.ToolTip>
             </Button>
             <Button BorderBrush="{x:Null}" 
@@ -131,11 +131,12 @@
             </Button>
 
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="371" Margin="80,50,0,0" VerticalAlignment="Top" Width="714">
+        <Grid HorizontalAlignment="Left" Height="487" Margin="80,50,0,0" VerticalAlignment="Top" Width="714">
             <Grid.RowDefinitions>
-                <RowDefinition Height="70*"/>
-                <RowDefinition Height="265*"/>
-                <RowDefinition Height="36*"/>
+                <RowDefinition Height="55*"/>
+                <RowDefinition Height="150*"/>
+                <RowDefinition Height="150*"/>
+                <RowDefinition Height="16*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="65*"/>
@@ -144,18 +145,17 @@
             </Grid.ColumnDefinitions>
 
             <ListView
-                ItemsSource="{Binding Usuarios}" Grid.Column="1" Grid.Row="1">
+                x:Name="lvCreativos"
+                MouseDoubleClick="lvCreativos_MouseDoubleClick"
+                Grid.Column="1" Grid.Row="1" Margin="0,30,0,0">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn
-                            DisplayMemberBinding="{Binding Code}"
+                        <GridViewColumn Width="300"
+                            DisplayMemberBinding="{Binding NombreCompleto}"
                             Header="Nombre" />
-                        <GridViewColumn
-                            DisplayMemberBinding="{Binding Name}"
-                                Header="identificador" />
-                        <GridViewColumn
-                            DisplayMemberBinding="{Binding Description}"
-                                Header="Tipo de usuario" />
+                        <GridViewColumn Width="auto"
+                            DisplayMemberBinding="{Binding UserName}"
+                                Header="Nombre de usuario" />
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -163,15 +163,14 @@
                 Grid.Column="1" 
                 HorizontalAlignment="Left" 
                 Height="23" 
-                Margin="350,37,0,0" 
+                Margin="350,39,0,0" 
                 TextWrapping="Wrap" 
                 materialDesign:HintAssist.Hint="Buscar..."
-                VerticalAlignment="Top" Width="225">
-            </TextBox>
+                VerticalAlignment="Top" Width="225"/>
             <materialDesign:PackIcon 
                 Grid.Column="1" 
                 HorizontalAlignment="Left" 
-                Margin="559,42,0,0" 
+                Margin="555,44,0,0" 
                 Kind="Search"
                 Foreground="#676767"
                 VerticalAlignment="Top"/>
@@ -179,19 +178,60 @@
             <Button BorderBrush="{x:Null}" 
                     HorizontalAlignment="Left"
                     Padding="0"
-                    Margin="10,30,0,0" 
+                    Margin="10,178,0,0" 
                     VerticalAlignment="Top" 
                     Width="35"
                     materialDesign:ButtonAssist.CornerRadius="50"
                     RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="#EB7A7A" Grid.Column="1">
+                    Height="35" Background="#EB7A7A" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Click="Button_Agregar">
                 <materialDesign:PackIcon 
                     Kind="Plus"
                     materialDesign:ShadowAssist.Darken="True"
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Center" 
                     Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+                <Button.ToolTip>
+                    Añadir nuevo usuario
+                </Button.ToolTip>
             </Button>
+            <Label 
+                Content="Creativos" 
+                FontFamily="Roboto"
+                FontSize="15"
+                FontWeight="DemiBold"
+                Foreground="#676767"
+                Grid.Column="1" 
+                HorizontalAlignment="Left" 
+                Margin="240,10,0,0" 
+                Grid.Row="1" 
+                VerticalAlignment="Top" 
+                RenderTransformOrigin="-0.244,0.2" Height="22" Width="75"/>
+            <Label 
+                Content="Operadores de cabina" 
+                FontFamily="Roboto"
+                FontSize="15"
+                FontWeight="DemiBold"
+                Foreground="#676767"
+                Grid.Column="1" 
+                HorizontalAlignment="Left" 
+                Margin="205,10,0,0" 
+                Grid.Row="2" 
+                VerticalAlignment="Top" 
+                RenderTransformOrigin="-0.244,0.2" Height="22" Width="160"/>
+            <ListView
+                x:Name="lvOperadores"
+                Grid.Column="1" Grid.Row="2" Margin="0,35,0,0" RenderTransformOrigin="0.453,1.44">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="300"
+                            DisplayMemberBinding="{Binding NombreCompleto}"
+                            Header="Nombre" />
+                        <GridViewColumn Width="auto"
+                            DisplayMemberBinding="{Binding NumeroPersonal}"
+                            Header="Número de personal" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </Grid>
     </Grid>
 </Window>
