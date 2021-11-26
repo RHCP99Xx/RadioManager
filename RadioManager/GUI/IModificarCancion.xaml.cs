@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RadioManager.Models.POCO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace RadioManager.GUI
     /// </summary>
     public partial class IModificarCancion : Window
     {
-        public IModificarCancion()
+        public IModificarCancion(Cancion cancion)
         {
             InitializeComponent();
         }
@@ -50,11 +51,6 @@ namespace RadioManager.GUI
         }
 
         private void btnSeleccionarImagen_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnInhabilitarCancion_Click(object sender, RoutedEventArgs e)
         {
 
         }

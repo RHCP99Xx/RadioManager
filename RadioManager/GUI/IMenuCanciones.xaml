@@ -9,11 +9,7 @@
         Title="IMenuCanciones" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
 
-        <TextBox x:Name="txtBuscarCancion" 
-                 TextChanged="txtBuscarCancion_TextChanged"
-                materialDesign:HintAssist.Hint="Buscar canción"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                VerticalAlignment="Center" Margin="534,67,18,317"  />
+
         <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40*"/>
@@ -114,7 +110,7 @@
                     Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
             </Button>
         </Grid>
-        <ListView x:Name="listaCanciones" HorizontalAlignment="Left" Height="283" Margin="94,117,0,0" VerticalAlignment="Top" Width="682" ItemsSource="{Binding Canciones}" BorderThickness="1" BorderBrush="Black" MouseDoubleClick="listaCanciones_MouseDoubleClick">
+        <ListView x:Name="listaCanciones" HorizontalAlignment="Left" Height="273" Margin="94,117,0,0" VerticalAlignment="Top" Width="682" ItemsSource="{Binding Canciones}" BorderThickness="1" BorderBrush="Black" SelectionChanged="listaCanciones_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Título de la canción" DisplayMemberBinding="{Binding Titulo}" Width="auto"/>
@@ -159,5 +155,10 @@
                     HorizontalAlignment="Center" 
                     Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
         </Button>
+        <TextBox x:Name="txtBuscarCancion" TextChanged="txtBuscarCancion_TextChanged" KeyDown="txtBuscarCancion_KeyDown"
+            HorizontalAlignment="Left" Height="28" Margin="519,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221"
+                 materialDesign:HintAssist.Hint="Título de la canción" 
+                 materialDesign:HintAssist.HelperText="Presione Enter para buscar"
+                 FontFamily="Roboto" FontSize="14px"/>
     </Grid>
 </Window>
