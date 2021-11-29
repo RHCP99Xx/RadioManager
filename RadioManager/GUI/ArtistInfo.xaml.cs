@@ -1,4 +1,5 @@
-﻿using RadioManager.Models.POCO;
+﻿using RadioManager.Models.DAO;
+using RadioManager.Models.POCO;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -32,6 +33,7 @@ namespace RadioManager.GUI
             DataContext = this;
             artistaSeleccionado = artista;
             mostrarInfoArtista();
+            mostrarCanciones();
         }
 
         public struct TablaCanciones
@@ -84,6 +86,23 @@ namespace RadioManager.GUI
             }
         }
 
+        private void mostrarCanciones()
+        {
+            CancionDAO cancionDAO = new CancionDAO();
+            var canciones = cancionDAO.obtenerCancionesPorArtista(artistaSeleccionado.IdArtista);
+
+            Canciones.Clear();
+
+            foreach (var cancion in canciones)
+            {
+                Canciones.Add(new TablaCanciones
+                {
+                    IdCancion = cancion.IdCancion,
+                    Nombre = cancion.Titulo,
+                });
+            }
+        }
+
         private void btn_Regresar_Click(object sender, RoutedEventArgs e)
         {
             Owner.Show();
@@ -96,6 +115,25 @@ namespace RadioManager.GUI
             editar.Owner = this;
             editar.Show();
             this.Hide();
+        }
+
+        private void lvCanciones_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var cancionSeleccionada = (TablaCanciones)lvCanciones.SelectedItem;
+            CancionDAO cancionDAO = new CancionDAO();
+            Cancion cancion = cancionDAO.obtenerCancionPorID(cancionSeleccionada.IdCancion);
+
+            if (lvCanciones.SelectedItem != null)
+            {
+                IConsultarCancion consultar = new IConsultarCancion(cancion);
+                consultar.Owner = this;
+                consultar.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Escoja una canción", "ERROR");
+            }
         }
     }
 }

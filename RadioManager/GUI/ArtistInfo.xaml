@@ -130,7 +130,7 @@
         <Label Content="Estado:" HorizontalAlignment="Left" Margin="120,178,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" RenderTransformOrigin="2.232,0.659"/>
         <Label x:Name="lblEstado"  Content="Estado" HorizontalAlignment="Left" Margin="195,178,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="2.232,0.659" Width="105"/>
         <TextBlock x:Name="textBlockDescripcion" HorizontalAlignment="Left" Margin="124,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="132" Width="320" FontSize="14"><Run Text="Descripción del artista"/></TextBlock>
-        <ListView x:Name="lvCanciones" ItemsSource="{Binding Canciones}" HorizontalAlignment="Left" Height="169" Margin="444,178,0,0" VerticalAlignment="Top" Width="312" FontSize="14">
+        <ListView x:Name="lvCanciones" ItemsSource="{Binding Canciones}" HorizontalAlignment="Left" Height="169" Margin="444,178,0,0" VerticalAlignment="Top" Width="312" FontSize="14" MouseDoubleClick="lvCanciones_MouseDoubleClick">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Canciones" DisplayMemberBinding="{Binding Nombre}" Width="auto"/>
