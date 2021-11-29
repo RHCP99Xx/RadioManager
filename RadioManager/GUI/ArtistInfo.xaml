@@ -25,7 +25,7 @@
                        Foreground="White" 
                        Margin="10.2,15,-0.4,0" 
                        TextWrapping="Wrap" 
-                       Text="ARTISTAS" 
+                       Text="ARTISTA" 
                        VerticalAlignment="Top" 
                        Height="25" Width="703" Grid.ColumnSpan="2"/>
             <Button BorderBrush="{x:Null}" 
