@@ -19,5 +19,9 @@ namespace RadioManager.Models.POCO
         public byte[] Fotografia { get => fotografia; set => fotografia = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public bool Activo { get => activo; set => activo = value;  }
+        public override string ToString()
+        {
+            return NombreArtistico;
+        }  
     }
 }

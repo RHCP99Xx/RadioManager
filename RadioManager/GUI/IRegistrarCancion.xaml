@@ -109,69 +109,78 @@
             </Button>
         </Grid>
 
-        <Button
-            x:Name="btnSeleccionarImagen"
-            Click="btnSeleccionarImagen_Click"
-            Cursor="Hand"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            materialDesign:ButtonAssist.CornerRadius="25"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="545,77,124,310" Background="White" BorderBrush="#FFEB7A7A" Foreground="#FFEB7A7A">
-            <TextBlock Text="Buscar" />
+        <Ellipse x:Name="imagenCancion" Fill="#FFF0F0F0" HorizontalAlignment="Left" Height="205" Margin="515,97,0,0" Stroke="#FFEB7A7A" VerticalAlignment="Top" Width="205" StrokeThickness="3" />
+        <Button x:Name="btnSeleccionarImagen" HorizontalAlignment="Left" Margin="564,148,0,0" VerticalAlignment="Top" Width="110" Height="110" BorderThickness="3"
+                Cursor="Hand"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                materialDesign:ButtonAssist.CornerRadius="100"
+                ToolTip="Solo se admiten *.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png" Background="{x:Null}" BorderBrush="#FFEB7A7A"
+                Click="btnSeleccionarImagen_Click">
+            <materialDesign:PackIcon Kind="Camera" Foreground="#FFEB7A7A" Height="52" Width="48"/>
         </Button>
-        <Button
-            x:Name="btnGuardarCancion"
-            Click="btnGuardarCancion_Click"
-            Cursor="Hand"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            materialDesign:ButtonAssist.CornerRadius="25"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="464,327,208,60" Background="White" BorderBrush="#FFEB7A7A" Foreground="#FFEB7A7A">
-            <TextBlock Text="Guardar" />
+
+        <Button BorderBrush="{x:Null}" 
+                x:Name="btnGuardarCancion"
+                Cursor="Hand"
+                Click="btnGuardarCancion_Click"
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="550,316,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35"
+                    ToolTip="Editar"
+                    materialDesign:ButtonAssist.CornerRadius="50"
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="#EB7A7A">
+            <materialDesign:PackIcon 
+                    Kind="FloppyDisc"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="25" Height="25" RenderTransformOrigin="0.933,3.1"/>
         </Button>
-        <Button
-            x:Name="btnSalirRegistroCancion"
-            Click="btnSalirRegistroCancion_Click"
-            Cursor="Hand"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            materialDesign:ButtonAssist.CornerRadius="25"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="639,327,33,60" Background="White" BorderBrush="#FFEB7A7A" Foreground="#FFEB7A7A">
-            <TextBlock Text="Regresar" />
+        <Button BorderBrush="{x:Null}" 
+                x:Name="btnSalirRegistroCancion"
+                Cursor="Hand"
+                Click="btnSalirRegistroCancion_Click"
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="650,316,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35"
+                    ToolTip="Regresar"
+                    materialDesign:ButtonAssist.CornerRadius="50"
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="#EB7A7A">
+            <materialDesign:PackIcon 
+                    Kind="ArrowBack"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
         </Button>
-        <Image x:Name="imagenCancion" HorizontalAlignment="Left" Height="165" Margin="523,127,0,0" VerticalAlignment="Top" Width="165"/>
 
         <TextBox x:Name="txtTituloCancion" 
                 materialDesign:HintAssist.Hint="Título de la canción"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                VerticalAlignment="Center" Margin="111,72,441,313" FontFamily="Roboto"  />
+                VerticalAlignment="Center" Margin="111,78,441,310" FontFamily="Roboto" Height="30"  FontSize="14"/>
         <TextBox x:Name="txtClaveCancion" 
                 materialDesign:HintAssist.Hint="Clave de la canción"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                VerticalAlignment="Center" Margin="111,127,441,258" FontFamily="Roboto" />
+                VerticalAlignment="Center" Margin="111,127,441,258" FontFamily="Roboto" Height="30"  FontSize="14"/>
         <ComboBox
             x:Name="comboArtista"
               materialDesign:HintAssist.Hint="Artista"
-              materialDesign:HintAssist.FloatingScale="1.5"
-              materialDesign:HintAssist.FloatingOffset="0, -24"
               MinWidth="72"
-              ItemsSource="{Binding LongListToTestComboVirtualization}"
-              Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="111,190,441,195" FontFamily="Roboto" FontSize="16" />
+              ItemsSource="{Binding ListaArtistas}" Margin="111,176,441,209" FontFamily="Roboto" FontSize="16" />
         <ComboBox
             x:Name="comboGenero"
               materialDesign:HintAssist.Hint="Género"
-              materialDesign:HintAssist.FloatingScale="1.5"
-              materialDesign:HintAssist.FloatingOffset="0, -24"
               MinWidth="72"
-              ItemsSource="{Binding LongListToTestComboVirtualization}"
-              Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="111,258,441,127" FontFamily="Roboto" FontSize="16" />
+              ItemsSource="{Binding ListaGeneros}" Margin="111,239,441,146" FontFamily="Roboto" FontSize="16" />
         <ComboBox
             x:Name="comboCategoria"
               materialDesign:HintAssist.Hint="Categoría"
-              materialDesign:HintAssist.FloatingScale="1.5"
-              materialDesign:HintAssist.FloatingOffset="0, -24"
               MinWidth="72"
-              ItemsSource="{Binding LongListToTestComboVirtualization}"
-              Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="111,325,441,60" FontFamily="Roboto" FontSize="16" />
+              ItemsSource="{Binding ListaCategorias}" Margin="111,308,441,77" FontFamily="Roboto" FontSize="16" />
+        <Label Content="Fotografía" HorizontalAlignment="Left" Margin="550,55,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Roboto" Width="124" HorizontalContentAlignment="Center"/>
     </Grid>
 </Window>

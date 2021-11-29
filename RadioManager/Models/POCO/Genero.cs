@@ -13,5 +13,9 @@ namespace RadioManager.Models.POCO
 
         public int IdGenero { get => idGenero; set => idGenero = value;  }
         public string NombreGenero { get => nombreGenero; set => nombreGenero = value;  }
+        public override string ToString()
+        {
+            return NombreGenero;
+        }
     }
 }

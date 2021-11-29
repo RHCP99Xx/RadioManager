@@ -108,12 +108,12 @@
                     Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
             </Button>
         </Grid>
-        
-        <Ellipse Margin="100,176,492,43" Width="200" Height="200" />
-        <Label x:Name="lblTituloCancion" Content="Titulo" HorizontalAlignment="Left" Margin="100,60,0,0" VerticalAlignment="Top" FontFamily="Roboto" FontSize="36" FontWeight="Bold" Width="231" />
-        <Label x:Name="lblArtistaCancion" Content="Artista" HorizontalAlignment="Left" Margin="100,134,0,0" VerticalAlignment="Top" FontFamily="Roboto" FontSize="24" FontWeight="Bold" Width="231"/>
 
-        <Grid Margin="350,60,31,71">
+        <Ellipse x:Name="imagenCancion" Margin="544,121,80,130" Fill="#FFF0F0F0" Stroke="#FFEB7A7A" StrokeThickness="3"/>
+        <Label x:Name="lblTituloCancion" Content="Titulo" HorizontalAlignment="Left" Margin="100,60,0,0" VerticalAlignment="Top" FontFamily="Roboto" FontSize="22" FontWeight="Bold" Width="353" FontStyle="Italic"/>
+        <Label x:Name="lblArtistaCancion" Content="Artista" HorizontalAlignment="Left" Margin="458,60,0,0" VerticalAlignment="Top" FontFamily="Roboto" FontSize="22" FontWeight="Bold" Width="315" HorizontalContentAlignment="Right"/>
+
+        <Grid Margin="99,102,282,29">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20*"/>
                 <RowDefinition Height="20*"/>
@@ -136,32 +136,50 @@
             <Label x:Name="lblCategoriaCancion" Content="Categoría de canción" Grid.Column="1" Grid.Row="2" FontFamily="Roboto" Padding="20" FontSize="16"/>
             <Label x:Name="lblEstadoCancion" Content="Estado de canción" Grid.Column="1" Grid.Row="3" FontFamily="Roboto" Padding="20" FontSize="16"/>
             <Label x:Name="lblDiasCancion" Content="Días al aire" Grid.Column="1" Grid.Row="4" FontFamily="Roboto" Padding="20" FontSize="16"/>
-            
+
         </Grid>
 
-        <Button
-            x:Name="btnSalirConsultar"
-            Click="btnSalirConsultar_Click"
-            Cursor="Hand"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            materialDesign:ButtonAssist.CornerRadius="25"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
-            Margin="419,367,250,20" 
-            Background="White" 
-            BorderBrush="#FFEB7A7A" 
-            Foreground="#FFEB7A7A">
-            <TextBlock Text="Regresar" />
+        <materialDesign:PackIcon x:Name="iconoSinFoto" Kind="User" Height="127" Width="118" Margin="567,135,0,0" Visibility="Hidden" Foreground="#FF8A939C"/>
+
+        <Button BorderBrush="{x:Null}" 
+                x:Name="btnSalirConsultar"
+                Cursor="Hand"
+                Click="btnSalirConsultar_Click"
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="571,315,0,0" 
+                    VerticalAlignment="Top" 
+                    ToolTip="Regresar"
+                    Width="35"
+                    materialDesign:ButtonAssist.CornerRadius="50"
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="#EB7A7A">
+            <materialDesign:PackIcon 
+                    Kind="ArrowLeft"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
         </Button>
-        <Button
-            x:Name="btnModificarCancion"
-            Click="btnModificarCancion_Click"
-            Cursor="Hand"
-            Style="{StaticResource MaterialDesignRaisedDarkButton}"
-            materialDesign:ButtonAssist.CornerRadius="25"
-            ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="584,367,85,20" Background="White" BorderBrush="#FFEB7A7A" Foreground="#FFEB7A7A">
-            <TextBlock Text="Modificar" />
+        <Button BorderBrush="{x:Null}" 
+                x:Name="btnModificarCancion"
+                Cursor="Hand"
+                Click="btnModificarCancion_Click"
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="650,315,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35"
+                    ToolTip="Editar"
+                    materialDesign:ButtonAssist.CornerRadius="50"
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="#EB7A7A">
+            <materialDesign:PackIcon 
+                    Kind="Pencil"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="25" Height="25" RenderTransformOrigin="0.933,3.1"/>
         </Button>
     </Grid>
 </Window>
