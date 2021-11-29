@@ -199,6 +199,9 @@
     </Compile>
     <Compile Include="Models\BD\ConexionDB.cs" />
     <Compile Include="Models\DAO\ArtistaDAO.cs" />
+    <Compile Include="Models\DAO\CancionDAO.cs" />
+    <Compile Include="Models\DAO\CategoriaDAO.cs" />
+    <Compile Include="Models\DAO\GeneroDAO.cs" />
     <Compile Include="Models\DAO\UsuarioDAO.cs" />
     <Compile Include="Models\POCO\Artista.cs" />
     <Compile Include="Models\POCO\Cancion.cs" />
