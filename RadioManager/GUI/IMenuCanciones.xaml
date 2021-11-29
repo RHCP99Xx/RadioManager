@@ -124,6 +124,7 @@
                     HorizontalAlignment="Left"
                     Padding="0"
                     Margin="94,67,0,0" 
+                    ToolTip="Registrar canción"
                     VerticalAlignment="Top" 
                     Width="35"
                     materialDesign:ButtonAssist.CornerRadius="50"
@@ -131,25 +132,6 @@
                     Height="35" Background="#EB7A7A">
             <materialDesign:PackIcon 
                     Kind="Plus"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-        </Button>
-        <Button BorderBrush="{x:Null}" 
-                x:Name="btnCancionAlAire"
-                Click="btnCancionAlAire_Click"
-                Cursor="Hand"
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Margin="173,67,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="35"
-                    materialDesign:ButtonAssist.CornerRadius="50"
-                    RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="#EB7A7A">
-            <materialDesign:PackIcon 
-                    Kind="PlaylistCheck"
                     materialDesign:ShadowAssist.Darken="True"
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Center" 

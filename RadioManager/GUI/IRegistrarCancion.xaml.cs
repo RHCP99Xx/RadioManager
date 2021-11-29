@@ -74,9 +74,9 @@ namespace RadioManager.GUI
 
                     cancion.Titulo = txtTituloCancion.Text;
                     cancion.Clave = txtClaveCancion.Text;
-                    cancion.IdCantante = int.Parse(comboArtista.SelectedValue.ToString());
-                    cancion.IdGenero = int.Parse(comboGenero.SelectedValue.ToString());
-                    cancion.IdCategoria = int.Parse(comboCategoria.SelectedValue.ToString());
+                    cancion.IdCantante = ((Artista)comboArtista.SelectedValue).IdArtista;
+                    cancion.IdGenero = ((Genero)comboGenero.SelectedValue).IdGenero;
+                    cancion.IdCategoria = ((Categoria)comboCategoria.SelectedValue).IdCategoria;
                     cancion.Imagen = byteImagen;
 
                     bool resultado = cancionDao.registrarCancion(cancion);

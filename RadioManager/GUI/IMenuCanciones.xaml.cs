@@ -73,11 +73,6 @@ namespace RadioManager.GUI
             this.Hide();
         }
 
-        private void btnCancionAlAire_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void txtBuscarCancion_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtBuscarCancion.Text))

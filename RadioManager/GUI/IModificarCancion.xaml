@@ -129,6 +129,11 @@
               materialDesign:HintAssist.Hint="Categoría"
               MinWidth="72"
               ItemsSource="{Binding ListaCategoria}" Margin="111,308,441,77" FontFamily="Roboto" FontSize="16" />
+        <ComboBox
+            x:Name="comboEstado"
+              materialDesign:HintAssist.Hint="Estado"
+              MinWidth="72"
+              ItemsSource="{Binding ListaEstado}" Margin="111,367,441,18" FontFamily="Roboto" FontSize="16" />
         <Button BorderBrush="{x:Null}" 
                 x:Name="btnSalirModificarCancion"
                 Cursor="Hand"
@@ -169,7 +174,6 @@
                     HorizontalAlignment="Center" 
                     Width="25" Height="25" RenderTransformOrigin="0.933,3.1"/>
         </Button>
-        <CheckBox x:Name="checkHabilitarCancion" Content="Habilitar" HorizontalAlignment="Left" Margin="191,365,0,0" VerticalAlignment="Top" FontFamily="Roboto" FontSize="15"/>
         <Label Content="Fotografía" HorizontalAlignment="Left" Margin="550,55,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Roboto" Width="124" HorizontalContentAlignment="Center"/>
 
         <Ellipse x:Name="imagenCancion" Fill="#FFF0F0F0" HorizontalAlignment="Left" Height="205" Margin="515,97,0,0" Stroke="#FFEB7A7A" VerticalAlignment="Top" Width="205" StrokeThickness="3" />

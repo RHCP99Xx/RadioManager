@@ -226,6 +226,7 @@ namespace RadioManager.Models.DAO
 
         public bool editarCancion(Cancion cancion)
         {
+            Console.WriteLine(cancion.Clave);
             bool resultado = false;
             MySqlConnection conn = null;
             try
@@ -233,8 +234,8 @@ namespace RadioManager.Models.DAO
                 conn = ConexionDB.getConnection();
                 if (conn != null)
                 {
-                    using (MySqlCommand command = new MySqlCommand("UPDATE `radio_manager`.`cancion` SET `titulo` = '" + cancion.Titulo + "', `claves` = " 
-                        + cancion.Clave + ", `idCategoria` = " + cancion.IdCategoria + ", `isGenero` = " + cancion.IdGenero + ", `idCantante` = " 
+                    using (MySqlCommand command = new MySqlCommand("UPDATE `radio_manager`.`cancion` SET `titulo` = '" + cancion.Titulo + "', `claves` = '" 
+                        + cancion.Clave + "', `idCategoria` = " + cancion.IdCategoria + ", `isGenero` = " + cancion.IdGenero + ", `idCantante` = " 
                         + cancion.IdCantante + ", `activo` = " + cancion.Activo + ", `imagen` = " + "@data" + " WHERE `idCancion` = " + cancion.IdCancion + ";", conn))
                     {
                         command.Parameters.AddWithValue("@data", cancion.Imagen);
@@ -257,6 +258,7 @@ namespace RadioManager.Models.DAO
                     conn.Close();
                 }
             }
+            Console.WriteLine(cancion.Clave);
             return resultado;
         }
     }
