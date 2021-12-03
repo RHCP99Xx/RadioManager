@@ -96,6 +96,7 @@ namespace RadioManager.GUI
 
                                 UsuarioDAO usuarioDAO = new UsuarioDAO();
                                 bool existe = usuarioDAO.comprobarExistenciaOperador(operador.NumPersonal);
+                                bool existeCorreo = usuarioDAO.existeEmail(operador.Correo);
                                 bool registered = false;
                                 if (existe)
                                 {
@@ -103,7 +104,14 @@ namespace RadioManager.GUI
                                 }
                                 else
                                 {
-                                    registered = usuarioDAO.registrarUsuarioCabina(operador);
+                                    if (existeCorreo)
+                                    {
+                                        MessageBox.Show("El correo electrónico que ha introducido ya existe, intente con uno nuevo", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                    }
+                                    else
+                                    {
+                                        registered = usuarioDAO.registrarUsuarioCabina(operador);
+                                    }
                                 }
                                 if (registered)
                                 {
@@ -137,6 +145,7 @@ namespace RadioManager.GUI
 
                                 UsuarioDAO usuarioDAO = new UsuarioDAO();
                                 bool existe = usuarioDAO.comprobarExistenciaCreativo(creativo.Username);
+                                bool existeCorreo = usuarioDAO.existeEmail(creativo.Correo);
                                 bool registered = false;
                                 if (existe)
                                 {
@@ -144,7 +153,14 @@ namespace RadioManager.GUI
                                 }
                                 else
                                 {
-                                    registered = usuarioDAO.registrarUsuarioCreativo(creativo);
+                                    if (existeCorreo)
+                                    {
+                                        MessageBox.Show("El correo electrónico que ha introducido ya existe, intente con uno nuevo", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                    }
+                                    else
+                                    {
+                                        registered = usuarioDAO.registrarUsuarioCreativo(creativo);
+                                    }
                                 }
                                 
                                 if (registered)

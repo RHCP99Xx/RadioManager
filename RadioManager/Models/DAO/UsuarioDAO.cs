@@ -790,5 +790,51 @@ namespace RadioManager.Models.DAO
             }
             return usuario;
         }
+
+        public bool existeEmail(string email)
+        {
+            bool existe = false;
+            MySqlConnection connection = null;
+
+            try
+            {
+                connection = ConexionDB.getConnection();
+                if (connection != null)
+                {
+                    MySqlDataReader reader = null;
+                    string query = string.Format("SELECT * FROM radio_manager.usuario " +
+                        "WHERE usuario.correo = '{0}';", email);
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    reader = command.ExecuteReader();
+                    
+                    while (reader.Read())
+                    {
+                        Usuario usuario = new Usuario();
+                        usuario.Correo = (!reader.IsDBNull(3)) ? reader.GetString(3) : "";
+                        if (usuario.Correo.Equals(email))
+                        {
+                            existe = true;
+                        }
+                        else
+                        {
+                            existe = false;
+                        }
+                    }
+
+                }
+            }
+            catch (MySqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return existe;
+        }
     }
 }

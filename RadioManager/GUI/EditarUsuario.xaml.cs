@@ -15,6 +15,7 @@ namespace RadioManager.GUI
     {
         private Creativo creativoSeleccionado = new Creativo();
         private Operador operadorSeleccionado = new Operador();
+        private string correoAnterior;
         public EditarUsuario(Creativo creativo)
         {
             this.creativoSeleccionado = creativo;
@@ -23,6 +24,7 @@ namespace RadioManager.GUI
             this.windowTitle.Text = "Editar Creativo";
             this.confirmButton.Click += confirmarCambiosCreativo_Button;
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            correoAnterior = this.emailBox.Text;
         }
 
         public EditarUsuario(Operador operador)
@@ -33,6 +35,7 @@ namespace RadioManager.GUI
             this.windowTitle.Text = "Editar Operador";
             this.confirmButton.Click += confirmarCambiosOperador_Button;
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            correoAnterior = this.emailBox.Text;
         }
 
 
@@ -77,7 +80,28 @@ namespace RadioManager.GUI
                         creativoSeleccionado.Contrasenia = EncryptData.Encrypt(password);
 
                         UsuarioDAO usuarioDAO = new UsuarioDAO();
-                        bool creativoEditado = usuarioDAO.editarCreativo(creativoSeleccionado);
+
+                        bool existeCorreo = false;
+                        bool creativoEditado = false;
+
+                        if (!correo.Equals(correoAnterior))
+                        {
+                            existeCorreo = usuarioDAO.existeEmail(correo);
+                            if (existeCorreo)
+                            {
+                                MessageBox.Show("El correo electrónico que ha introducido ya existe, intente con uno nuevo", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            }
+                            else
+                            {
+                                creativoEditado = usuarioDAO.editarCreativo(creativoSeleccionado);
+                            }
+                        }
+                        else
+                        {
+                            creativoEditado = usuarioDAO.editarCreativo(creativoSeleccionado);
+                        }
+
+
                         if (creativoEditado)
                         {
                             MessageBox.Show("El creativo se ha editado satisfactoriamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -139,7 +163,27 @@ namespace RadioManager.GUI
                         operadorSeleccionado.Contrasenia = EncryptData.Encrypt(password);
 
                         UsuarioDAO usuarioDAO = new UsuarioDAO();
-                        bool operadorEditado = usuarioDAO.editarOperador(operadorSeleccionado);
+                        
+                        bool existeCorreo = false;
+                        bool operadorEditado = false;
+
+                        if (!correo.Equals(correoAnterior))
+                        {
+                            existeCorreo = usuarioDAO.existeEmail(correo);
+                            if (existeCorreo)
+                            {
+                                MessageBox.Show("El correo electrónico que ha introducido ya existe, intente con uno nuevo", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            }
+                            else
+                            {
+                                operadorEditado = usuarioDAO.editarOperador(operadorSeleccionado);
+                            }
+                        }
+                        else
+                        {
+                            operadorEditado = usuarioDAO.editarOperador(operadorSeleccionado);
+                        }
+
                         if (operadorEditado)
                         {
                             MessageBox.Show("El operador de cabina se ha editado satisfactoriamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
