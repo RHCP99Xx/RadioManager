@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:RadioManager.GUI"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        Closing="Window_Closing"
+        WindowStyle="ToolWindow"
         Title="DetallesDeUsuario" Height="450" Width="800">
     <Grid>
         <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">
@@ -34,92 +36,15 @@
                     VerticalAlignment="Top" 
                     Width="35" 
                     RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}">
-                <materialDesign:PackIcon 
-                    Kind="Home"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-            </Button>
+                    Height="35" Background="{x:Null}"/>
 
         </Grid>
-        <Grid Width="80" HorizontalAlignment="Left" Background="#FFEB7A7A" Margin="0,50,0,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="136*"/>
-            </Grid.RowDefinitions>
-            <Button BorderBrush="{x:Null}" 
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Margin="20,10,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="35" 
-                    RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}" Grid.Row="1">
-                <materialDesign:PackIcon 
-                    Kind="MusicNote"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-            </Button>
-            <Button BorderBrush="{x:Null}" 
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Margin="20,10,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="35" 
-                    RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}" Grid.Row="1">
-                <materialDesign:PackIcon 
-                    Kind="MusicNote"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-            </Button>
-            <Button BorderBrush="{x:Null}" 
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Margin="20,10,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="35" 
-                    RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}" Grid.Row="2">
-                <materialDesign:PackIcon 
-                    Kind="Artist"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-            </Button>
-            <Button BorderBrush="{x:Null}" 
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Margin="20,10,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="35" 
-                    RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}" Grid.Row="3">
-                <materialDesign:PackIcon 
-                    Kind="PlaylistMusic"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-            </Button>
-
-        </Grid>
-        <Grid HorizontalAlignment="Left" Height="369" Margin="80,50,0,0" VerticalAlignment="Top" Width="712">
+        <Grid HorizontalAlignment="Left" Height="370" Margin="-1,50,0,0" VerticalAlignment="Top" Width="793">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="295*"/>
-                <ColumnDefinition Width="382*"/>
+                <ColumnDefinition Width="39*"/>
+                <ColumnDefinition Width="329*"/>
+                <ColumnDefinition Width="348*"/>
+                <ColumnDefinition Width="77*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="85*"/>
@@ -137,13 +62,13 @@
                 FontWeight="Bold"
                 FontSize="40"
                 HorizontalAlignment="Left" 
-                Margin="0,10,0,0" 
+                Margin="190,10,0,0" 
                 TextWrapping="Wrap" 
                 Text="TextBlock" 
                 VerticalAlignment="Top" 
-                Height="60"
-                TextAlignment="Center"
-                Width="295"/>
+                Height="65"
+                TextAlignment="Left"
+                Width="415" Grid.ColumnSpan="2"/>
             <Label
                 Content="Nombre:"
                 FontFamily="Roboto"
@@ -208,7 +133,7 @@
                 Grid.Row="1" 
                 VerticalAlignment="Top" 
                 Height="30" 
-                Width="195"/>
+                Width="338"/>
             <Label
                 x:Name="emailLabel"
                 FontFamily="Roboto"
@@ -221,7 +146,7 @@
                 Grid.Row="2" 
                 VerticalAlignment="Top" 
                 Height="30" 
-                Width="195"/>
+                Width="338"/>
             <Label
                 x:Name="userTypeLabel"
                 FontFamily="Roboto"
@@ -248,6 +173,28 @@
                 VerticalAlignment="Top" 
                 Height="30" 
                 Width="195"/>
+            <Button
+                FontSize="12"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                materialDesign:ButtonAssist.CornerRadius="10"
+                Content="Regresar"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Height="Auto" Background="#FFFF" Foreground="#FFEB7A7A" BorderBrush="#FFEB7A7A" Click="Button_Click2" Grid.Column="1" Margin="10,25,205,29" Grid.Row="5" />
+            <Button
+                x:Name="editButton"
+                FontSize="12"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                materialDesign:ButtonAssist.CornerRadius="10"
+                Content="Editar"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Height="30" Background="#FFEB7A7A" BorderBrush="#FFEB7A7A" Grid.Column="1" Margin="215,25,0,0" Grid.Row="5" VerticalAlignment="Top" Click="editarButton_Click" />
+            <Button
+                x:Name="activationButton"
+                FontSize="12"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                materialDesign:ButtonAssist.CornerRadius="10"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Height="30" Background="#FFEB7A7A" BorderBrush="#FFEB7A7A" Grid.Column="2" Margin="188,25,30,0" Grid.Row="5" VerticalAlignment="Top" Click="desactivarUsuario_Button" />
         </Grid>
     </Grid>
 </Window>
