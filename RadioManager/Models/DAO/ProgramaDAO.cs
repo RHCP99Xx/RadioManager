@@ -68,7 +68,7 @@ namespace RadioManager.Models.DAO
                 {
                     MySqlCommand comando;
                     MySqlDataReader dataReader;
-                    String query = String.Format("SELECT * FROM cantante WHERE idPrograma = '{0}';", idPrograma);
+                    String query = String.Format("SELECT * FROM programa WHERE idPrograma = '{0}';", idPrograma);
                     comando = new MySqlCommand(query, conn);
                     dataReader = comando.ExecuteReader();
                     while (dataReader.Read())
