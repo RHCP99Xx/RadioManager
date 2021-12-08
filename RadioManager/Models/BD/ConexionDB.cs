@@ -1,29 +1,27 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data.SqlClient;
 
 namespace RadioManager.Models.BD
 {
     public class ConexionDB
     {
-        private static string SERVER = "maisonbleue2020.ddns.net";
-        private static string PORT = "3306";
-        private static string DATABASE = "radio_manager";
-        private static string USER = "edgarhv";
-        private static string PASSWORD = "30dpr4319n#M";
+        private static string server = "maisonbleue2020.ddns.net";
+        private static string database = "radio_manager";
+        private static string user = "edgarhv";
+        private static string password = "30dpr4319n#M";
 
-        public static SqlConnection getConnection()
+        private static string connectionString = connectionString = "SERVER=" + server + "; PORT = 3306 ;" +
+            "DATABASE=" + database + ";" + "UID=" + user + ";" + "PASSWORD=" + password + ";";
+
+        public static MySqlConnection getConnection()
         {
-            SqlConnection connection = null;
+            MySqlConnection connection = null;
 
             try
             {
-                String urlconn = String.Format(
-                    "Data Source={0}, {1};" +
-                    "Network Library=DBMSSOCN;" +
-                    "User ID={3};" +
-                    "Password={4};",
-                    SERVER, PORT, DATABASE, USER, PASSWORD);
-                connection = new SqlConnection(urlconn);
+                connection = new MySqlConnection();
+                connection.ConnectionString = connectionString;
                 connection.Open();
             }
             catch (Exception exception)
