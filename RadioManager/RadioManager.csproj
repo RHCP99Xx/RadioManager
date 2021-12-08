@@ -156,7 +156,9 @@
       <DependentUpon>MenuProgramas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\BD\ConexionDB.cs" />
+    <Compile Include="Models\DAO\CalendarioDAO.cs" />
     <Compile Include="Models\DAO\ProgramaDAO.cs" />
+    <Compile Include="Models\POCO\Calendario.cs" />
     <Compile Include="Models\POCO\Programa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

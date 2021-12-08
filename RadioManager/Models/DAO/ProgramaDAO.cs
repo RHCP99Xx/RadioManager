@@ -117,7 +117,7 @@ namespace RadioManager.Models.DAO
                         programa.IdPrograma = (!dataReader.IsDBNull(0)) ? dataReader.GetInt32(0) : 0;
                         programa.Nombre = (!dataReader.IsDBNull(1)) ? dataReader.GetString(1) : "";
                         programa.Activo = (!dataReader.IsDBNull(3)) ? dataReader.GetBoolean(3) : false;
-                        programa.IdRadio = (!dataReader.IsDBNull(3)) ? dataReader.GetInt32(3) : 0;
+                        programa.IdRadio = (!dataReader.IsDBNull(4)) ? dataReader.GetInt32(4) : 0;
                     }
                     dataReader.Close();
                     comando.Dispose();
