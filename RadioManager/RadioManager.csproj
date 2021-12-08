@@ -150,6 +150,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GUI\FormularioPrograma.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\DetallesPrograma.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\EditarPrograma.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\MenuProgramas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -188,6 +204,18 @@
     <Compile Include="GUI\IRegistrarCancion.xaml.cs">
       <DependentUpon>IRegistrarCancion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\DetallesPrograma.xaml.cs">
+      <DependentUpon>DetallesPrograma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\EditarPrograma.xaml.cs">
+      <DependentUpon>EditarPrograma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormularioPrograma.xaml.cs">
+      <DependentUpon>FormularioPrograma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\MenuProgramas.xaml.cs">
+      <DependentUpon>MenuProgramas.xaml</DependentUpon>
+    </Compile>
     <Page Include="GUI\RegistrarArtista.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -213,6 +241,9 @@
     <Compile Include="Models\POCO\Patron.cs" />
     <Compile Include="Models\POCO\PatronPrograma.cs" />
     <Compile Include="Models\POCO\Programa.cs" />
+    <Compile Include="Models\DAO\ProgramaDAO.cs"/>
+    <Compile Include="Models\POCO\Calendario.cs"/>
+    <Compile Include="Models\DAO\CalendarioDAO.cs"/>
     <Compile Include="Models\POCO\Radio.cs" />
     <Compile Include="Models\POCO\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
