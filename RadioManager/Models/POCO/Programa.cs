@@ -11,9 +11,11 @@ namespace RadioManager.Models.POCO
         private int idPrograma;
         private string nombre;
         private bool activo;
+        private int idRadio;
 
-        public int IdPrograma { get => idPrograma; set => idPrograma = value;  }
-        public string Nombre { get => nombre; set => nombre = value;  }
+        public int IdPrograma { get => idPrograma; set => idPrograma = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
         public bool Activo { get => activo; set => activo = value; }
+        public int IdRadio { get => idRadio; set => idRadio = value; }
     }
 }

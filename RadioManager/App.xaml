@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:RadioManager"
              xmlns:materialDesign="https://materialdesigninxaml.net/winfx/xaml/themes"
-             StartupUri="GUI/IMenuCanciones.xaml">
-   
+             StartupUri="GUI/MenuProgramas.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
