@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Data.SqlClient;
 
 namespace RadioManager.Models.BD
 {
@@ -10,7 +11,7 @@ namespace RadioManager.Models.BD
         private static string user = "edgarhv";
         private static string password = "30dpr4319n#M";
 
-        private static string connectionString = connectionString = "SERVER=" + server + "; PORT = 3306 ;" +
+        private static string connectionString = connectionString = "SERVER=" + server + "; PORT = 3306 ;" + 
             "DATABASE=" + database + ";" + "UID=" + user + ";" + "PASSWORD=" + password + ";";
 
         public static MySqlConnection getConnection()
