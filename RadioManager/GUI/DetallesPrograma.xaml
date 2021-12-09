@@ -27,19 +27,6 @@
                        Text="PROGRAMA" 
                        VerticalAlignment="Top" 
                        Height="25" Width="613"/>
-            <TextBlock Grid.Column="1"
-                       x:Name="nombrePrograma"
-                       HorizontalAlignment="Center" 
-                       TextAlignment="Center" 
-                       FontSize="20" 
-                       FontFamily="Roboto" 
-                       FontWeight="Bold" 
-                       Foreground="#FFEB7A7A" 
-                       Margin="10,148,59,-124" 
-                       TextWrapping="Wrap" 
-                       Text="PROGRAMA" 
-                       VerticalAlignment="Top" 
-                       Height="26" Width="564"/>
             <Button BorderBrush="{x:Null}" 
                     HorizontalAlignment="Left"
                     Padding="0"
@@ -55,19 +42,6 @@
                     HorizontalAlignment="Center" 
                     Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
             </Button>
-            <TextBlock Grid.Column="1"
-                x:Name="estado"
-                HorizontalAlignment="Center" 
-                TextAlignment="Center" 
-                FontSize="20" 
-                FontFamily="Roboto" 
-                FontWeight="Bold" 
-                Foreground="#FFEB7A7A" 
-                Margin="10,278,59,-254" 
-                TextWrapping="Wrap" 
-                Text="PROGRAMA" 
-                VerticalAlignment="Top" 
-                Height="26" Width="564"/>
 
         </Grid>
         <Grid Width="80" HorizontalAlignment="Left" Background="#FFEB7A7A" Margin="0,50,0,0">
@@ -145,7 +119,7 @@
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
             ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
             x:Name="btnEditar"
-            Content="Modificar"
+            Content="Editar"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="665,82,25,300" Height="Auto" Background="#FFEB7A7A" BorderBrush="#FFEB7A7A" Click="btnEditar_Click" />
         <Button
             Style="{StaticResource MaterialDesignPaperDarkButton}"
@@ -156,8 +130,30 @@
         <Button
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
             ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
-            x:Name="btnEliminar"
-            Content="Eliminar"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="665,157,25,225" Height="Auto" Background="#FFEB7A7A" BorderBrush="#FFEB7A7A" Click="btnEliminar_Click" />
+            x:Name="btnAsignar"
+            Content="Asignar patrón"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="665,147,25,235" Height="Auto" Background="#FFEB7A7A" BorderBrush="#FFEB7A7A" Click="btnAsignar_Click"/>
+        <Label x:Name="lbNombrePrograma" Content="Nombre del programa" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="99,55,0,0" VerticalAlignment="Top" FontSize="24" Width="494" Foreground="#FFEB7A7A" Height="41" FontStyle="Italic" FontWeight="Bold"/>
+        <Label Content="Estado:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="99,116,0,0" VerticalAlignment="Top" FontSize="18" Width="121" Foreground="#FFEB7A7A" Height="32" FontWeight="Bold"/>
+        <Label Content="Hora Inicio:" HorizontalAlignment="Left" Margin="480,115,0,0" VerticalAlignment="Top" FontSize="18" Width="113" Foreground="#FFEB7A7A" Height="33" FontWeight="Bold"/>
+        <Label Content="Transmisión:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="99,349,0,0" VerticalAlignment="Top" FontSize="18" Width="121" Foreground="#FFEB7A7A" Height="33" FontWeight="Bold"/>
+        <Label Content="Comerciales:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="99,283,0,0" VerticalAlignment="Top" FontSize="18" Width="121" Foreground="#FFEB7A7A" Height="33" FontWeight="Bold"/>
+        <Label Content="IdPatron:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="99,232,0,0" VerticalAlignment="Top" FontSize="18" Width="121" Foreground="#FFEB7A7A" Height="33" FontWeight="Bold"/>
+        <Label Content="Radio:" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="99,172,0,0" VerticalAlignment="Top" FontSize="18" Width="121" Foreground="#FFEB7A7A" Height="33" FontWeight="Bold"/>
+        <Label Content="Hora Fin:" HorizontalAlignment="Left" Margin="480,234,0,0" VerticalAlignment="Top" FontSize="18" Width="113" Foreground="#FFEB7A7A" Height="33" FontWeight="Bold"/>
+
+        <Label x:Name="lbEstado" Content="Estado de programa" HorizontalAlignment="Left" Margin="243,116,0,0" VerticalAlignment="Top" FontSize="18" Width="195" Foreground="#FFEB7A7A" Height="32" FontWeight="Bold"/>
+        <Label x:Name="lbRadio" Content="Radio perteneciente" HorizontalAlignment="Left" Margin="243,172,0,0" VerticalAlignment="Top" FontSize="18" Width="195" Foreground="#FFEB7A7A" Height="32" FontWeight="Bold"/>
+        <Label x:Name="lbPatron" Content="Patrón asociado" HorizontalAlignment="Left" Margin="243,232,0,0" VerticalAlignment="Top" FontSize="18" Width="195" Foreground="#FFEB7A7A" Height="32" FontWeight="Bold"/>
+        <Label x:Name="lbComerciales" Content="Comerciales del programa" HorizontalAlignment="Left" Margin="243,284,0,0" VerticalAlignment="Top" FontSize="18" Width="195" Foreground="#FFEB7A7A" Height="32" FontWeight="Bold"/>
+        <Label x:Name="lbTransmision" Content="Días de transmisión" HorizontalAlignment="Left" Margin="243,350,0,0" VerticalAlignment="Top" FontSize="18" Width="195" Foreground="#FFEB7A7A" Height="32" FontWeight="Bold"/>
+        <Label x:Name="lbHrInicio" Content="Inicio asinado" HorizontalAlignment="Left" Margin="480,172,0,0" VerticalAlignment="Top" FontSize="18" Width="160" Foreground="#FFEB7A7A" Height="32" FontWeight="Bold"/>
+        <Label x:Name="lbHoraFin" Content="Fin asignado" HorizontalAlignment="Left" Margin="480,283,0,0" VerticalAlignment="Top" FontSize="18" Width="160" Foreground="#FFEB7A7A" Height="32" FontWeight="Bold"/>
+        <Button
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+            x:Name="btnVerLista"
+            Content="Ver Lista"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="665,209,25,173" Height="Auto" Background="#FFEB7A7A" BorderBrush="#FFEB7A7A" Click="btnVerLista_Click"/>
     </Grid>
 </Window>

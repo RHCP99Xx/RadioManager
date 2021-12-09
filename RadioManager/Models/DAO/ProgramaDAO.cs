@@ -109,7 +109,7 @@ namespace RadioManager.Models.DAO
                 {
                     MySqlCommand comando;
                     MySqlDataReader dataReader;
-                    String query = String.Format("SELECT * FROM cantante WHERE nombre = '{0}';", nombre);
+                    String query = String.Format("SELECT * FROM programa WHERE nombrePrograma = '{0}';", nombre);
                     comando = new MySqlCommand(query, conn);
                     dataReader = comando.ExecuteReader();
                     while (dataReader.Read())
@@ -141,13 +141,14 @@ namespace RadioManager.Models.DAO
         public bool registrarPrograma(Programa programa)
         {
             bool registrado = false;
+
             MySqlConnection conn = null;
             try
             {
                 conn = ConexionDB.getConnection();
                 if (conn != null)
                 {
-                    using (MySqlCommand command = new MySqlCommand("INSERT INTO radio_manager.programa VALUES(NULL, '" + programa.Nombre + "', '1', '1');", conn))
+                    using (MySqlCommand command = new MySqlCommand("INSERT INTO radio_manager.programa VALUES(NULL, '" + programa.Nombre + "', '0', '1');", conn))
                     {
                         command.ExecuteNonQuery();
                     }
@@ -173,12 +174,23 @@ namespace RadioManager.Models.DAO
         {
             bool editado = false;
             MySqlConnection conn = null;
+
+            string estaActivo;
+            if (programa.Activo == true)
+            {
+                estaActivo = "1";
+            }
+            else
+            {
+                estaActivo = "0";
+            }
+
             try
             {
                 conn = ConexionDB.getConnection();
                 if (conn != null)
                 {
-                    using (MySqlCommand command = new MySqlCommand("UPDATE `radio_manager`.`programa` SET `nombre` ='" + programa.Nombre + "' WHERE `idPrograma` = " + programa.IdPrograma + ";", conn))
+                    using (MySqlCommand command = new MySqlCommand("UPDATE `radio_manager`.`programa` SET `nombrePrograma` ='" + programa.Nombre + "', `activo` = '" + estaActivo + "'  WHERE `idPrograma` = " + programa.IdPrograma + ";", conn))
                     {
                         command.ExecuteNonQuery();
                     }
@@ -198,6 +210,82 @@ namespace RadioManager.Models.DAO
             }
 
             return editado;
+        }
+
+        public int obtenerIdPorNombre(String nombrePrograma)
+        {
+            Programa programa = new Programa();
+            int idPrograma = 0;
+
+            MySqlConnection conn = null;
+
+            try
+            {
+                conn = ConexionDB.getConnection();
+                if (conn != null)
+                {
+                    MySqlCommand comando;
+                    MySqlDataReader dataReader;
+                    String query = String.Format("SELECT idPrograma FROM programa WHERE nombrePrograma = '{0}';", nombrePrograma);
+                    comando = new MySqlCommand(query, conn);
+                    dataReader = comando.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        programa.IdPrograma = (!dataReader.IsDBNull(0)) ? dataReader.GetInt32(0) : 0;
+                    }
+
+                    idPrograma = programa.IdPrograma;
+
+                    dataReader.Close();
+                    comando.Dispose();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return idPrograma;
+        }
+
+        public bool activarConPatron(Programa programa)
+        {
+            bool activado = false;
+
+            MySqlConnection conn = null;
+            try
+            {
+                conn = ConexionDB.getConnection();
+                if (conn != null)
+                {
+                    using (MySqlCommand command = new MySqlCommand("UPDATE `radio_manager`.`programa` SET `activo` ='1' WHERE `idPrograma` = " + programa.IdPrograma + ";", conn))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    activado = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return activado;
         }
     }
 }

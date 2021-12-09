@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using RadioManager.Models.DAO;
 using RadioManager.Models.POCO;
 
 namespace RadioManager.GUI
@@ -31,30 +32,70 @@ namespace RadioManager.GUI
 
         private void mostrarDetalles()
         {
-            nombrePrograma.Text = programaSeleccionado.Nombre;
-
+            lbNombrePrograma.Content = programaSeleccionado.Nombre;
             if (programaSeleccionado.Activo == true)
             {
-                estado.Text = "Activo";
+                lbEstado.Content = "Activo";
             }
             else
             {
-                estado.Text = "Inactivo";
+                lbEstado.Content = "Inactivo";
             }
+            lbRadio.Content = "Radio Local";
+
+            CalendarioDAO calendarioDAO = new CalendarioDAO();
+            Calendario calendario = new Calendario();
+
+            calendario = calendarioDAO.getCalendarioPorIdPrograma(programaSeleccionado.IdPrograma);
+
+            lbPatron.Content = calendario.IdPatron;
+            lbComerciales.Content = calendario.CorteComercial;
+            mostrarContenidoChecks(calendario.Dia);
+            lbHrInicio.Content = calendario.HoraInicio;
+            lbHoraFin.Content = calendario.HoraFin;
         }
 
-        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        public void mostrarContenidoChecks(String dias)
+        {
+            string mostrarDias = "";
+            if (dias.Contains("l"))
+            {
+                mostrarDias += "L";
+            }
+            if (dias.Contains("m"))
+            {
+                mostrarDias += ",M";
+            }
+            if (dias.Contains("x"))
+            {
+                mostrarDias += ",X";
+            }
+            if (dias.Contains("j"))
+            {
+                mostrarDias += ",J";
+            }
+            if (dias.Contains("v"))
+            {
+                mostrarDias += ",V";
+            }
+            if (dias.Contains("s"))
+            {
+                mostrarDias += ",S";
+            }
+            if (dias.Contains("d"))
+            {
+                mostrarDias += ",D";
+            }
+
+            lbTransmision.Content = mostrarDias;
+        }
+
+        public void btnEditar_Click(object sender, RoutedEventArgs e)
         {
             EditarPrograma editarPrograma = new EditarPrograma(programaSeleccionado);
+            editarPrograma.Owner = this;
             editarPrograma.Show();
-            this.Close();
-        }
-
-        private void btnEliminar_Click(object sender, RoutedEventArgs e)
-        {
-            MenuProgramas menuProgramas = new MenuProgramas();
-            menuProgramas.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
@@ -62,6 +103,19 @@ namespace RadioManager.GUI
             MenuProgramas menuProgramas = new MenuProgramas();
             menuProgramas.Show();
             this.Close();
+        }
+
+        private void btnAsignar_Click(object sender, RoutedEventArgs e)
+        {
+            AsignarPatron asignarPatron = new AsignarPatron(programaSeleccionado);
+            asignarPatron.Owner = this;
+            asignarPatron.Show();
+            this.Hide();
+        }
+
+        private void btnVerLista_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
