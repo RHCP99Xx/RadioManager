@@ -158,5 +158,129 @@ namespace RadioManager.Models.DAO
                 }
             }
         }
+
+
+        public List<LineaPatron> getLineasPatronUsadas()
+        {
+            List<LineaPatron> lineasPatron = new List<LineaPatron>();
+            MySqlConnection conn = null;
+            try
+            {
+                conn = ConexionDB.getConnection();
+                if (conn != null)
+                {
+                    MySqlCommand command;
+                    MySqlDataReader dataReader;
+                    String query = "SELECT idCategoria, idGenero " +
+                                    "FROM radio_manager.lineapatron " +
+                                    "GROUP BY idCategoria, idGenero;";
+                    command = new MySqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+
+
+                    while (dataReader.Read())
+                    {
+                        LineaPatron lineaPatron = new LineaPatron();
+                        lineaPatron.Categoria = new Categoria();
+                        lineaPatron.Genero = new Genero();
+                        lineaPatron.Categoria.IdCategoria = (!dataReader.IsDBNull(0)) ? dataReader.GetInt32(0) : 0;
+                        lineaPatron.Genero.IdGenero = (!dataReader.IsDBNull(1)) ? dataReader.GetInt32(1) : 0;
+
+                        lineasPatron.Add(lineaPatron);
+
+                    }
+                    dataReader.Close();
+                    command.Dispose();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nExcepción LineaPatronDAO getLineasPatronUsadas():");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return lineasPatron;
+        }
+
+
+        public List<LineaPatronReporte> getLineasPatronSinUsar()
+        {
+            List<LineaPatron> lineasPatronUsadas  = getLineasPatronUsadas();
+            List<LineaPatronReporte> lineasPatron = new List<LineaPatronReporte>();
+
+            MySqlConnection conn = null;
+
+            try
+            {
+                conn = ConexionDB.getConnection();
+                if (conn != null)
+                {
+                    MySqlCommand command;
+                    MySqlDataReader dataReader;
+                    String query = "SELECT idCategoria, isGenero, COUNT(isGenero) FROM radio_manager.cancion WHERE ";
+                    int posicion = 1;
+                    foreach (LineaPatron linea in lineasPatronUsadas)
+                    {
+                        if( posicion < (lineasPatronUsadas.Count))
+                        {
+                            query = query + "(idCategoria != " + linea.Categoria.IdCategoria + " AND isGenero != " + linea.Genero.IdGenero + ") AND ";
+                        }
+                        else
+                        {
+                            query = query + "(idCategoria != " + linea.Categoria.IdCategoria + " AND isGenero != " + linea.Genero.IdGenero + ") ";
+                        }
+                        
+                        posicion++;
+                    }
+                    query = query + " GROUP BY idCategoria, isGenero;";
+
+                    command = new MySqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+
+                    
+
+                    while (dataReader.Read())
+                    {
+                        LineaPatronReporte lineaPatronReporte = new LineaPatronReporte();
+                        lineaPatronReporte.Categoria = new Categoria();
+                        lineaPatronReporte.Genero = new Genero();
+
+                        lineaPatronReporte.Categoria.IdCategoria = (!dataReader.IsDBNull(0)) ? dataReader.GetInt32(0) : 0;
+                        lineaPatronReporte.Genero.IdGenero = (!dataReader.IsDBNull(1)) ? dataReader.GetInt32(1) : 0;
+                        lineaPatronReporte.NumCanciones = (!dataReader.IsDBNull(2)) ? dataReader.GetInt32(2) : 0;
+
+
+                        lineasPatron.Add(lineaPatronReporte);
+
+                    }
+                    dataReader.Close();
+                    command.Dispose();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nExcepción LineaPatronDAO getLineasPatronSinUsar():");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return lineasPatron;
+        }
+
     }
 }

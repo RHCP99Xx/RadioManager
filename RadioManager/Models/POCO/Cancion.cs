@@ -8,6 +8,7 @@ namespace RadioManager.Models.POCO
 {
     public class Cancion
     {
+        private int idCancion;
         private string clave;
         private string titulo;
         private string dias;
@@ -19,5 +20,6 @@ namespace RadioManager.Models.POCO
         public string Dias { get => dias; set => dias = value; }
         public bool Activo { get => activo; set => activo = value;  }
         public bool AlAire { get => alAire; set => alAire = value;  }
+        public int IdCancion { get => idCancion; set => idCancion = value; }
     }
 }
