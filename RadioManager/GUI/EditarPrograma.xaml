@@ -1,0 +1,193 @@
+﻿<Window x:Class="RadioManager.GUI.EditarPrograma"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RadioManager.GUI"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="EditarPrograma" Height="450" Width="800">
+    <Grid>
+        <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="315*"/>
+                <ColumnDefinition Width="40*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1"
+                       x:Name="windowTitle"
+                       HorizontalAlignment="Center" 
+                       TextAlignment="Center" 
+                       FontSize="20" 
+                       FontFamily="Roboto" 
+                       FontWeight="Bold" 
+                       Foreground="White" 
+                       Margin="10,15,10,0" 
+                       TextWrapping="Wrap" 
+                       Text="Registrar Programa" 
+                       VerticalAlignment="Top" 
+                       Height="25" Width="613"/>
+            <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}">
+                <materialDesign:PackIcon 
+                    Kind="Home"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+
+        </Grid>
+        <Grid Width="80" HorizontalAlignment="Left" Background="#FFEB7A7A" Margin="0,50,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="136*"/>
+            </Grid.RowDefinitions>
+            <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="1">
+                <materialDesign:PackIcon 
+                    Kind="MusicNote"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+            <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="1">
+                <materialDesign:PackIcon 
+                    Kind="MusicNote"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+            <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="2">
+                <materialDesign:PackIcon 
+                    Kind="Artist"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+            <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="3">
+                <materialDesign:PackIcon 
+                    Kind="PlaylistMusic"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
+
+        </Grid>
+        <TextBox x:Name="txtNombre"
+            materialDesign:HintAssist.Hint="Nombre del programa"
+            materialDesign:HintAssist.HelperText="Introduzca el nombre del programa"
+            Margin="120,68,0,320" HorizontalAlignment="Left" Width="324" />
+        <Label Content="Hora de Inicio" Margin="120,234,555,154" Foreground="Gray"/>
+
+        <materialDesign:TimePicker
+            Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+            materialDesign:HintAssist.Hint="Selecciona una Hr" 
+            Margin="244,205,401,154" x:Name="tpHrInicio" Height="60"
+            Is24Hours="True"/>
+
+        <Label Content="Hora de Fin" Margin="120,313,555,75" Foreground="Gray"/>
+        <materialDesign:TimePicker
+            Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+            materialDesign:HintAssist.Hint="Selecciona una Hr" 
+            Margin="244,284,401,75" x:Name="tpHrFin" Height="60"
+            Is24Hours="True"/>
+        <Button
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+            x:Name="btnGuardar"
+            Content="Guardar"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="666,68,26,316" Height="Auto" Background="#FFEB7A7A" BorderBrush="#FFEB7A7A" Click="btnGuardar_Click" />
+        <Button
+            Style="{StaticResource MaterialDesignPaperDarkButton}"
+            ToolTip="Resource name: MaterialDesignPaperDarkButton"
+            Content="Cancelar"
+            x:Name="btnCancelar"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Height="Auto" Margin="666,330,26,54" BorderBrush="#FFEB7A7A" Click="btnCancelar_Click"/>
+
+        <Label Content="Comerciales" Margin="120,368,597,20" Foreground="Gray"/>
+        <TextBox x:Name="tbComerciales"
+            materialDesign:HintAssist.Hint="Comerciales para el programa"
+            materialDesign:HintAssist.HelperText="Introduzca cantidad"
+            Margin="244,368,0,20" HorizontalAlignment="Left" Width="174"/>
+
+        <Label Content="Patrón" Margin="484,68,233,320" Foreground="Gray"/>
+        <TextBox x:Name="tbPatron"
+            materialDesign:HintAssist.Hint="Patrón asignado"
+            materialDesign:HintAssist.HelperText="Ingrese patrón"
+            Margin="484,106,0,282" HorizontalAlignment="Left" Width="147" />
+
+        <Label Content="Días de transmisión" Margin="484,181,189,207" Foreground="Gray"/>
+
+        <StackPanel
+            Margin="484,211,148,68">
+            <CheckBox x:Name="cbLunes"
+                IsChecked="False"
+                Content="Lunes" />
+            <CheckBox x:Name="cbMartes"
+                IsChecked="False"
+                Content="Martes" />
+            <CheckBox x:Name="cbMiercoles"
+                IsChecked="False"
+                Content="Miércoles" />
+            <CheckBox x:Name="cbJueves"
+                IsChecked="False"
+                Content="Jueves" />
+            <CheckBox x:Name="cbViernes"
+                IsChecked="False"
+                Content="Viernes" />
+            <CheckBox x:Name="cbSabado"
+                IsChecked="False"
+                Content="Sábado" />
+            <CheckBox x:Name="cbDomingo"
+                IsChecked="False"
+                Content="Domingo" />
+        </StackPanel>
+        <ComboBox x:Name="cbEstado"
+            materialDesign:HintAssist.Hint="Estado del programa"
+            materialDesign:HintAssist.HelperText="Seleccione una opción"
+            Margin="120,140,0,247" HorizontalAlignment="Left" Width="324">
+        </ComboBox>
+    </Grid>
+</Window>
