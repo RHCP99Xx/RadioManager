@@ -114,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GUI\AsignarPatron.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\DetallesDeUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +179,9 @@
     </Compile>
     <Compile Include="GUI\ArtistMainWindow.xaml.cs">
       <DependentUpon>ArtistMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\AsignarPatron.xaml.cs">
+      <DependentUpon>AsignarPatron.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\DetallesDeUsuario.xaml.cs">
       <DependentUpon>DetallesDeUsuario.xaml</DependentUpon>
@@ -241,9 +248,9 @@
     <Compile Include="Models\POCO\Patron.cs" />
     <Compile Include="Models\POCO\PatronPrograma.cs" />
     <Compile Include="Models\POCO\Programa.cs" />
-    <Compile Include="Models\DAO\ProgramaDAO.cs"/>
-    <Compile Include="Models\POCO\Calendario.cs"/>
-    <Compile Include="Models\DAO\CalendarioDAO.cs"/>
+    <Compile Include="Models\DAO\ProgramaDAO.cs" />
+    <Compile Include="Models\POCO\Calendario.cs" />
+    <Compile Include="Models\DAO\CalendarioDAO.cs" />
     <Compile Include="Models\POCO\Radio.cs" />
     <Compile Include="Models\POCO\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

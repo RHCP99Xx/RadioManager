@@ -115,33 +115,23 @@
             </Button>
 
         </Grid>
-        <TextBox
+        <TextBox x:Name="txtNombre"
             materialDesign:HintAssist.Hint="Nombre del programa"
             materialDesign:HintAssist.HelperText="Introduzca el nombre del programa"
-            Margin="266,59,0,329" HorizontalAlignment="Left" Width="324" />
-
-        <ComboBox
-            materialDesign:HintAssist.Hint="Estado del programa"
-            materialDesign:HintAssist.HelperText="Seleccione una opción"
-            Margin="266,118,0,269" HorizontalAlignment="Left" Width="324">
-            <ComboBoxItem
-                Content="Activo" />
-            <ComboBoxItem
-                Content="Inactivo" />
-        </ComboBox>
-        <Label Content="Hora de Inicio" Margin="266,174,409,214" Foreground="Gray"/>
+            Margin="120,68,0,320" HorizontalAlignment="Left" Width="324" />
+        <Label Content="Hora de Inicio" Margin="120,165,555,223" Foreground="Gray"/>
 
         <materialDesign:TimePicker
             Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
             materialDesign:HintAssist.Hint="Selecciona una Hr" 
-            Margin="266,211,379,148" x:Name="hrInicio" Height="60"
+            Margin="244,138,401,223" x:Name="tpHrInicio" Height="60"
             Is24Hours="True"/>
 
-        <Label Content="Hora de Fin" Margin="443,172,232,216" Foreground="Gray"/>
+        <Label Content="Hora de Fin" Margin="120,253,555,135" Foreground="Gray"/>
         <materialDesign:TimePicker
             Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
             materialDesign:HintAssist.Hint="Selecciona una Hr" 
-            Margin="443,211,202,148" x:Name="hrFin" Height="60"
+            Margin="244,226,401,135" x:Name="tpHrFin" Height="60"
             Is24Hours="True"/>
         <Button
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
@@ -156,16 +146,42 @@
             x:Name="btnCancelar"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Height="Auto" Margin="666,330,26,54" BorderBrush="#FFEB7A7A" Click="btnCancelar_Click"/>
 
-        <Label Content="Comerciales" Margin="266,276,451,112" Foreground="Gray"/>
-        <TextBox
-            materialDesign:HintAssist.Hint="Comerciales del programa"
+        <Label Content="Comerciales" Margin="120,337,597,51" Foreground="Gray"/>
+        <TextBox x:Name="tbComerciales"
+            materialDesign:HintAssist.Hint="Comerciales para el programa"
             materialDesign:HintAssist.HelperText="Introduzca cantidad"
-            Margin="270,307,0,81" HorizontalAlignment="Left" Width="143" />
+            Margin="244,337,0,51" HorizontalAlignment="Left" Width="174"/>
 
-        <Label Content="Canciones" Margin="443,276,274,112" Foreground="Gray"/>
-        <TextBox
+        <Label Content="Canciones" Margin="484,68,233,320" Foreground="Gray"/>
+        <TextBox x:Name="tbCanciones"
             materialDesign:HintAssist.Hint="Canciones del programa"
             materialDesign:HintAssist.HelperText="Introduzca cantidad"
-            Margin="443,307,0,81" HorizontalAlignment="Left" Width="147" />
+            Margin="484,106,0,282" HorizontalAlignment="Left" Width="147" />
+        <Label Content="Días de transmisión" Margin="484,181,189,207" Foreground="Gray"/>
+
+        <StackPanel
+            Margin="484,211,148,68">
+            <CheckBox x:Name="cbLunes"
+                IsChecked="False"
+                Content="Lunes" />
+            <CheckBox x:Name="cbMartes"
+                IsChecked="False"
+                Content="Martes" />
+            <CheckBox x:Name="cbMiercoles"
+                IsChecked="False"
+                Content="Miércoles" />
+            <CheckBox x:Name="cbJueves"
+                IsChecked="False"
+                Content="Jueves" />
+            <CheckBox x:Name="cbViernes"
+                IsChecked="False"
+                Content="Viernes" />
+            <CheckBox x:Name="cbSabado"
+                IsChecked="False"
+                Content="Sábado" />
+            <CheckBox x:Name="cbDomingo"
+                IsChecked="False"
+                Content="Domingo" />
+        </StackPanel>
     </Grid>
 </Window>

@@ -34,8 +34,8 @@ namespace RadioManager.Models.DAO
                         calendario.IdPrograma = (!dataReader.IsDBNull(1)) ? dataReader.GetInt32(1) : 0;
                         calendario.CorteComercial = (!dataReader.IsDBNull(2)) ? dataReader.GetString(2) : "";
                         calendario.Dia = (!dataReader.IsDBNull(3)) ? dataReader.GetString(3) : "";
-                        calendario.HoraInicio = (!dataReader.IsDBNull(4)) ? dataReader.GetDateTime(4) : DateTime.Now;
-                        calendario.HoraFin = (!dataReader.IsDBNull(5)) ? dataReader.GetDateTime(5) : DateTime.Now;
+                        calendario.HoraInicio = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : "";
+                        calendario.HoraFin = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
 
                         calendarios.Add(calendario);
                     }
@@ -79,8 +79,8 @@ namespace RadioManager.Models.DAO
                         calendario.IdPrograma = (!dataReader.IsDBNull(1)) ? dataReader.GetInt32(1) : 0;
                         calendario.CorteComercial = (!dataReader.IsDBNull(2)) ? dataReader.GetString(2) : "";
                         calendario.Dia = (!dataReader.IsDBNull(3)) ? dataReader.GetString(3) : "";
-                        calendario.HoraInicio = (!dataReader.IsDBNull(4)) ? dataReader.GetDateTime(4) : DateTime.Now;
-                        calendario.HoraFin = (!dataReader.IsDBNull(5)) ? dataReader.GetDateTime(5) : DateTime.Now;
+                        calendario.HoraInicio = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : "";
+                        calendario.HoraFin = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
                     }
                     dataReader.Close();
                     comando.Dispose();
@@ -101,7 +101,7 @@ namespace RadioManager.Models.DAO
             return calendario;
         }
 
-        public Calendario getCalendarioPorNombre(String nombre)
+        public Calendario getCalendarioPorIdPrograma(int idPrograma)
         {
             Calendario calendario = new Calendario();
             MySqlConnection conn = null;
@@ -113,7 +113,7 @@ namespace RadioManager.Models.DAO
                 {
                     MySqlCommand comando;
                     MySqlDataReader dataReader;
-                    String query = String.Format("SELECT * FROM calendario WHERE nombre = '{0}';", nombre);
+                    String query = String.Format("SELECT * FROM calendario WHERE idPrograma = '{0}';", idPrograma);
                     comando = new MySqlCommand(query, conn);
                     dataReader = comando.ExecuteReader();
                     while (dataReader.Read())
@@ -122,8 +122,8 @@ namespace RadioManager.Models.DAO
                         calendario.IdPrograma = (!dataReader.IsDBNull(1)) ? dataReader.GetInt32(1) : 0;
                         calendario.CorteComercial = (!dataReader.IsDBNull(2)) ? dataReader.GetString(2) : "";
                         calendario.Dia = (!dataReader.IsDBNull(3)) ? dataReader.GetString(3) : "";
-                        calendario.HoraInicio = (!dataReader.IsDBNull(4)) ? dataReader.GetDateTime(4) : DateTime.Now;
-                        calendario.HoraFin = (!dataReader.IsDBNull(5)) ? dataReader.GetDateTime(5) : DateTime.Now;
+                        calendario.HoraInicio = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : "";
+                        calendario.HoraFin = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
                     }
                     dataReader.Close();
                     comando.Dispose();
@@ -153,7 +153,7 @@ namespace RadioManager.Models.DAO
                 conn = ConexionDB.getConnection();
                 if (conn != null)
                 {
-                    using (MySqlCommand command = new MySqlCommand("INSERT INTO radio_manager.calendario VALUES('" + calendario.IdPatron + "', '" + calendario.IdPrograma + "', '" + calendario.CorteComercial + "', '"+ calendario.Dia +"', '"+ calendario.HoraInicio + "', '" + calendario.HoraFin + "');", conn))
+                    using (MySqlCommand command = new MySqlCommand("INSERT INTO radio_manager.calendario VALUES('" + calendario.IdPatron + "', '" + calendario.IdPrograma + "', '" + calendario.CorteComercial + "', '" + calendario.Dia + "', '" + calendario.HoraInicio + "', '" + calendario.HoraFin + "');", conn))
                     {
                         command.ExecuteNonQuery();
                     }
@@ -178,13 +178,14 @@ namespace RadioManager.Models.DAO
         public bool editarCalendario(Calendario calendario)
         {
             bool editado = false;
+
             MySqlConnection conn = null;
             try
             {
                 conn = ConexionDB.getConnection();
                 if (conn != null)
                 {
-                    using (MySqlCommand command = new MySqlCommand(/*"UPDATE `radio_manager`.`calendario` SET `nombre` ='" + calendario.Nombre + "' WHERE `idCalendario` = " + calendario.IdCalendario + ";"*/"", conn))
+                    using (MySqlCommand command = new MySqlCommand("UPDATE `radio_manager`.`calendario` SET `idPatron` ='" + calendario.IdPatron + "', `corteComercial` ='" + calendario.CorteComercial + "', `dia` ='" + calendario.Dia + "', `horaInicio`='" + calendario.HoraInicio + "', `horaFIn`='" + calendario.HoraFin + "' WHERE `idPrograma` = " + calendario.IdPrograma + ";", conn))
                     {
                         command.ExecuteNonQuery();
                     }
@@ -204,6 +205,38 @@ namespace RadioManager.Models.DAO
             }
 
             return editado;
+        }
+
+        public bool asignarPatron(Calendario calendario)
+        {
+            bool asignado = false;
+
+            MySqlConnection conn = null;
+            try
+            {
+                conn = ConexionDB.getConnection();
+                if (conn != null)
+                {
+                    using (MySqlCommand command = new MySqlCommand("UPDATE `radio_manager`.`calendario` SET `idPatron` ='" + calendario.IdPatron + "' WHERE `idPrograma` = " + calendario.IdPrograma + ";", conn))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    asignado = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return asignado;
         }
     }
 }
