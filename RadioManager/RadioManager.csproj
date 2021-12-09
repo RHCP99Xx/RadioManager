@@ -188,6 +188,7 @@
     <Compile Include="Models\POCO\Creativo.cs" />
     <Compile Include="Models\POCO\Genero.cs" />
     <Compile Include="Models\POCO\LineaPatron.cs" />
+    <Compile Include="Models\POCO\LineaPatronReporte.cs" />
     <Compile Include="Models\POCO\Operador.cs" />
     <Compile Include="Models\POCO\Patron.cs" />
     <Compile Include="Models\POCO\PatronPrograma.cs" />

@@ -22,15 +22,18 @@ namespace RadioManager.GUI
     /// </summary>
     public partial class ReporteCancionesSinUsar : Window
     {
+        List<LineaPatronReporte> lineaPatronReportes;
         public ReporteCancionesSinUsar()
         {
             InitializeComponent();
+
+            LineaPatronDAO lineaPatronDAO = new LineaPatronDAO();
+            lineaPatronDAO.getLineasPatronSinUsar();
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            LineaPatronDAO lineaPatronDAO = new LineaPatronDAO();
-            lineaPatronDAO.getLineasPatronSinUsar();
+            
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
