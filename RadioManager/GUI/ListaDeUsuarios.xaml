@@ -13,7 +13,8 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="ListaDeUsuarios" Height="450" Width="800" ResizeMode="NoResize">
+        Closing="Window_Closing"
+        Title="ListaDeUsuarios" Height="646" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">
             <Grid.ColumnDefinitions>
@@ -48,17 +49,22 @@
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Center" 
                     Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+
+                <Button.ToolTip>
+                    Inicio
+                </Button.ToolTip>
             </Button>
 
         </Grid>
         <Grid Width="80" HorizontalAlignment="Left" Background="#FFEB7A7A" Margin="0,50,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="136*"/>
+                <RowDefinition Height="54*"/>
+                <RowDefinition Height="76*"/>
+                <RowDefinition Height="76*"/>
+                <RowDefinition Height="77*"/>
+                <RowDefinition Height="76*"/>
+                <RowDefinition Height="61*"/>
+                <RowDefinition Height="147*"/>
             </Grid.RowDefinitions>
             <Button BorderBrush="{x:Null}" 
                     HorizontalAlignment="Left"
@@ -90,7 +96,7 @@
                     HorizontalAlignment="Center" 
                     Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
                 <Button.ToolTip>
-                       Canciones
+                    Canciones
                 </Button.ToolTip>
             </Button>
             <Button BorderBrush="{x:Null}" 
@@ -129,13 +135,30 @@
                     Géneros
                 </Button.ToolTip>
             </Button>
+            <Button BorderBrush="{x:Null}" 
+                HorizontalAlignment="Left"
+                Padding="0"
+                Margin="20,10,0,0" 
+                VerticalAlignment="Top" 
+                Width="35" 
+                RenderTransformOrigin="0.133,-0.156" 
+                Height="35" Background="{x:Null}" Grid.Row="4">
+                <Button.ToolTip>Reportes</Button.ToolTip>
+                <materialDesign:PackIcon 
+                    Kind="FileReport"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+            </Button>
 
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="371" Margin="80,50,0,0" VerticalAlignment="Top" Width="714">
+        <Grid HorizontalAlignment="Left" Height="567" Margin="80,50,0,0" VerticalAlignment="Top" Width="714">
             <Grid.RowDefinitions>
-                <RowDefinition Height="70*"/>
-                <RowDefinition Height="265*"/>
-                <RowDefinition Height="36*"/>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="245*"/>
+                <RowDefinition Height="242*"/>
+                <RowDefinition Height="55*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="65*"/>
@@ -144,54 +167,77 @@
             </Grid.ColumnDefinitions>
 
             <ListView
-                ItemsSource="{Binding Usuarios}" Grid.Column="1" Grid.Row="1">
+                x:Name="lvCreativos" SelectionChanged="lvCreativos_SelectionChanged"
+                ItemsSource="{Binding Usuarios}" Grid.Column="1" Grid.Row="1" Margin="0,48,0,0">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn
-                            DisplayMemberBinding="{Binding Code}"
+                        <GridViewColumn Width="300"
+                            DisplayMemberBinding="{Binding NombreCompleto}"
                             Header="Nombre" />
                         <GridViewColumn
-                            DisplayMemberBinding="{Binding Name}"
-                                Header="identificador" />
-                        <GridViewColumn
-                            DisplayMemberBinding="{Binding Description}"
-                                Header="Tipo de usuario" />
+                            DisplayMemberBinding="{Binding UserName}"
+                                Header="Nombre de usuario" />
                     </GridView>
                 </ListView.View>
             </ListView>
-            <TextBox 
-                Grid.Column="1" 
-                HorizontalAlignment="Left" 
-                Height="23" 
-                Margin="350,37,0,0" 
-                TextWrapping="Wrap" 
-                materialDesign:HintAssist.Hint="Buscar..."
-                VerticalAlignment="Top" Width="225">
-            </TextBox>
-            <materialDesign:PackIcon 
-                Grid.Column="1" 
-                HorizontalAlignment="Left" 
-                Margin="559,42,0,0" 
-                Kind="Search"
-                Foreground="#676767"
-                VerticalAlignment="Top"/>
 
             <Button BorderBrush="{x:Null}" 
                     HorizontalAlignment="Left"
                     Padding="0"
-                    Margin="10,30,0,0" 
+                    Margin="10,225,0,0" 
                     VerticalAlignment="Top" 
                     Width="35"
                     materialDesign:ButtonAssist.CornerRadius="50"
                     RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="#EB7A7A" Grid.Column="1">
+                    Height="35" Background="#EB7A7A" Grid.Column="2" Grid.Row="1" Click="Button_Registrar" Grid.RowSpan="2">
                 <materialDesign:PackIcon 
                     Kind="Plus"
                     materialDesign:ShadowAssist.Darken="True"
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Center" 
                     Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+                <Button.ToolTip>
+                    Añadir usuario
+                </Button.ToolTip>
             </Button>
+            <ListView
+                x:Name="lvOperadores" SelectionChanged="lvOperadores_SelectionChanged"
+                ItemsSource="{Binding Usuarios}" Grid.Column="1" Grid.Row="2" Margin="0,47,0,0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="300"
+                            DisplayMemberBinding="{Binding NombreCompleto}"
+                            Header="Nombre" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding NumeroPersonal}"
+                            Header="Número de personal" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Label 
+                Content="Creativos" 
+                FontFamily="Roboto"
+                FontSize="15"
+                FontWeight="DemiBold"
+                Foreground="#676767"
+                Grid.Column="1" 
+                HorizontalAlignment="Left" 
+                Margin="240,10,0,0" 
+                Grid.Row="1" 
+                VerticalAlignment="Top" 
+                RenderTransformOrigin="-0.244,0.2" Height="33" Width="75"/>
+            <Label 
+                Content="Operadores de cabina" 
+                FontFamily="Roboto"
+                FontSize="15"
+                FontWeight="DemiBold"
+                Foreground="#676767"
+                Grid.Column="1" 
+                HorizontalAlignment="Left" 
+                Margin="205,10,0,0" 
+                Grid.Row="2" 
+                VerticalAlignment="Top" 
+                RenderTransformOrigin="-0.244,0.2" Height="32" Width="160"/>
         </Grid>
     </Grid>
 </Window>
