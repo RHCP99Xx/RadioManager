@@ -116,10 +116,9 @@ namespace RadioManager.Models.DAO
                 conn = ConexionDB.getConnection();
                 if (conn != null)
                 {
-                    MySqlCommand command;
                     MySqlDataReader dataReader;
                     String query = String.Format("SELECT * FROM cantante WHERE nombreArtistico = '{0}';", nombre);
-                    command = new MySqlCommand(query, conn);
+                    MySqlCommand command = new MySqlCommand(query, conn);
                     dataReader = command.ExecuteReader();
                     while (dataReader.Read())
                     {

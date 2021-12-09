@@ -29,9 +29,10 @@
             <ColumnDefinition Width="190*"/>
             <ColumnDefinition Width="36*"/>
         </Grid.ColumnDefinitions>
-        <Image Grid.Column="1" Source="../GUI/Logo.png" Height="125" Margin="47,10,48,0" VerticalAlignment="Top" RenderTransformOrigin="0.25,0.2"/>
+        <Image Grid.Column="1" Source="Logo.png" Height="145" VerticalAlignment="Top" RenderTransformOrigin="0.25,0.2" Stretch="Fill" Margin="87,0"/>
 
         <TextBox
+                    x:Name="emailBox"
                     materialDesign:HintAssist.Hint="Correo electrónico"
                     materialDesign:HintAssist.HelperText="Introduzca su correo electrónico"
                     Grid.Column="1"
@@ -39,7 +40,7 @@
 
         <TextBlock Grid.Column="1" FontSize="30" HorizontalAlignment="Center" TextAlignment="Center" Margin="87,4,87,0" Grid.Row="1" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Width="170" Height="39" Foreground="#FF676767"/>
         <PasswordBox
-            x:Name="PasswordBox"
+            x:Name="passwordBox"
             materialDesign:HintAssist.Hint="Contraseña"
             materialDesign:TextFieldAssist.HasClearButton="True"
             materialDesign:HintAssist.HelperText="Al menos 8 caracteres" Grid.Column="1" Margin="10,145,10,70" Grid.Row="2" />
