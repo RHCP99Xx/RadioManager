@@ -1,0 +1,133 @@
+﻿<Window x:Class="RadioManager.GUI.Patrones"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RadioManager.GUI"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="AgregarPatron" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="507*"/>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+
+                <ListView
+                    x:Name="lvPatrones"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Margin="10,10,10,10" SelectionChanged="lvPatrones_SelectionChanged" Grid.ColumnSpan="2">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Nombre" Width="170" DisplayMemberBinding="{Binding Nombre}"/>
+
+                        </GridView>
+                    </ListView.View>
+
+                </ListView>
+                <Button
+                    x:Name="btnEliminar"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,7,0,7"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Width="120"
+                    Height="36"
+                    
+                    Background="Red" BorderBrush="Red"
+                    Content="Eliminar"
+                    Click="btnEliminar_Click" />
+
+                <Button
+                    x:Name="btnEditar"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Width="120"
+                    Height="36"
+                    
+                    Background="#FFEB7A7A" BorderBrush="#FFEB7A7A"
+                    Content="Editar"
+                    Click="btnEditar_Click" />
+
+                <Button
+                    x:Name="btnAgregar"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Width="120"
+                    Height="35"
+                    HorizontalAlignment="Right"
+                    Background="#FFEB7A7A" BorderBrush="#FFEB7A7A"
+                    Content="Agregar"
+                    Margin="0,0,10,0"
+                    Click="btnAgregar_Click"  />
+
+            </Grid>
+
+        </Grid>
+        <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="315*"/>
+                <ColumnDefinition Width="40*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1"
+                       x:Name="windowTitle"
+                       HorizontalAlignment="Center" 
+                       TextAlignment="Center" 
+                       FontSize="20" 
+                       FontFamily="Roboto" 
+                       FontWeight="Bold" 
+                       Foreground="White" 
+                       Margin="10,15,10,0" 
+                       TextWrapping="Wrap" 
+                       Text="Patrones" 
+                       VerticalAlignment="Top" 
+                       Height="25" Width="613"/>
+
+        </Grid>
+        <Grid Width="80" HorizontalAlignment="Left" Background="#FFEB7A7A" Margin="0,50,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="136*"/>
+            </Grid.RowDefinitions>
+
+
+        </Grid>
+
+    </Grid>
+
+</Window>
