@@ -105,7 +105,7 @@ namespace RadioManager.GUI
             this.Hide();
         }
 
-        private void lvArtistas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void lvArtistas_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var artistaSeleccionado = (TablaArtistas)lvArtistas.SelectedItem;
             ArtistaDAO artistaDAO = new ArtistaDAO();
@@ -122,6 +122,11 @@ namespace RadioManager.GUI
             {
                 MessageBox.Show("Escoja un artista", "ERROR");
             }
+        }
+
+        private void btnPrincipal_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
