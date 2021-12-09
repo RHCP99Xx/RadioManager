@@ -225,25 +225,31 @@ namespace RadioManager.Models.DAO
                 {
                     MySqlCommand command;
                     MySqlDataReader dataReader;
-                    String query = "SELECT idCategoria, isGenero, COUNT(isGenero) FROM radio_manager.cancion WHERE ";
+                    String query = "SELECT nombreCategoria, nombreGenero, COUNT(isGenero) AS numCanciones FROM radio_manager.cancion " +
+                                    "INNER JOIN radio_manager.categoria ON cancion.idCategoria = categoria.idCategoria " +
+                                    "INNER JOIN radio_manager.genero ON genero.idGenero WHERE ";
                     int posicion = 1;
                     foreach (LineaPatron linea in lineasPatronUsadas)
                     {
                         if( posicion < (lineasPatronUsadas.Count))
                         {
-                            query = query + "(idCategoria != " + linea.Categoria.IdCategoria + " AND isGenero != " + linea.Genero.IdGenero + ") AND ";
+                            query = query + "(cancion.idCategoria != " + linea.Categoria.IdCategoria + " AND isGenero != " + linea.Genero.IdGenero + ") AND ";
                         }
                         else
                         {
-                            query = query + "(idCategoria != " + linea.Categoria.IdCategoria + " AND isGenero != " + linea.Genero.IdGenero + ") ";
+                            query = query + "(cancion.idCategoria != " + linea.Categoria.IdCategoria + " AND isGenero != " + linea.Genero.IdGenero + ") ";
                         }
                         
                         posicion++;
                     }
-                    query = query + " GROUP BY idCategoria, isGenero;";
+                    query = query + "GROUP BY nombreCategoria, nombreGenero;";
 
-                    command = new MySqlCommand(query, conn);
-                    dataReader = command.ExecuteReader();
+
+                    String queryFinal = query;
+                    Console.WriteLine(queryFinal);
+
+                    command = new MySqlCommand(queryFinal, conn);
+                   dataReader = command.ExecuteReader();
 
                     
 
@@ -253,8 +259,8 @@ namespace RadioManager.Models.DAO
                         lineaPatronReporte.Categoria = new Categoria();
                         lineaPatronReporte.Genero = new Genero();
 
-                        lineaPatronReporte.Categoria.IdCategoria = (!dataReader.IsDBNull(0)) ? dataReader.GetInt32(0) : 0;
-                        lineaPatronReporte.Genero.IdGenero = (!dataReader.IsDBNull(1)) ? dataReader.GetInt32(1) : 0;
+                        lineaPatronReporte.Categoria.NombreCategoria = (!dataReader.IsDBNull(0)) ? dataReader.GetString(0) : "";
+                        lineaPatronReporte.Genero.NombreGenero = (!dataReader.IsDBNull(1)) ? dataReader.GetString(1) : "";
                         lineaPatronReporte.NumCanciones = (!dataReader.IsDBNull(2)) ? dataReader.GetInt32(2) : 0;
 
 

@@ -38,14 +38,14 @@
                          Margin="0,0,20,0"/>
                 </StackPanel>
                 <ListView
-                    x:Name="lvCanciones"
+                    x:Name="lvLineas"
                     Grid.Column="0"
                     Grid.Row="1"
                     Margin="10,10,10,10">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Categoría" Width="300" DisplayMemberBinding="{Binding Categoria.IdCategoria}"/>
-                            <GridViewColumn Header="Género" Width="150" DisplayMemberBinding="{Binding Genero.IdGenero}"/>
+                            <GridViewColumn Header="Categoría" Width="300" DisplayMemberBinding="{Binding Categoria.NombreCategoria}"/>
+                            <GridViewColumn Header="Género" Width="150" DisplayMemberBinding="{Binding Genero.NombreGenero}"/>
                             <GridViewColumn Header="Núm." Width="100" DisplayMemberBinding="{Binding NumCanciones}"/>
                         </GridView>
                     </ListView.View>
