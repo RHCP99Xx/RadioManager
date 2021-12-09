@@ -64,11 +64,6 @@ namespace RadioManager.GUI
             cbArtista.ItemsSource = artistas;
         }
 
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             if (cbArtista.SelectedItem != null && cbCategoria.SelectedItem != null && cbGenero.SelectedItem != null)

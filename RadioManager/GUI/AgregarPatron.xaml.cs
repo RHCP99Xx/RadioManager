@@ -81,7 +81,7 @@ namespace RadioManager.GUI
                 MessageBox.Show("Por favor ingrese un nombre");
             } else if (lineaPatrones.Count == 0)
             {
-                MessageBox.Show("Por favor ingrese una linea la patrón");
+                MessageBox.Show("Por favor ingrese una linea al patrón");
             }
             else
             {

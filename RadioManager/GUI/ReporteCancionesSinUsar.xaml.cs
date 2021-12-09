@@ -87,12 +87,8 @@ namespace RadioManager.GUI
             document.Close();
             aplicacion.Quit();
 
-            MessageBox.Show("Repporte guardado");
+            MessageBox.Show("Reporte guardado");
         }
 
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
