@@ -188,6 +188,51 @@ namespace RadioManager.Models.DAO
             return listaCanciones;
         }
 
+        public List<Cancion> obtenerCancionesPorArtista(int idArtista)
+        {
+            List<Cancion> listaCanciones = new List<Cancion>();
+            MySqlConnection conn = null;
+
+            try
+            {
+                conn = ConexionDB.getConnection();
+                if (conn != null)
+                {
+                    MySqlCommand command;
+                    MySqlDataReader dataReader;
+                    String query = "SELECT * FROM radio_manager.cancion WHERE idCantante = "+ idArtista + ";";
+                    command = new MySqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        Cancion cancion = new Cancion();
+
+                        cancion.IdCancion = !dataReader.IsDBNull(0) ? dataReader.GetInt32(0) : 0;
+                        cancion.Titulo = !dataReader.IsDBNull(1) ? dataReader.GetString(1) : "";
+
+                        listaCanciones.Add(cancion);
+                    }
+                    dataReader.Close();
+                    command.Dispose();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nExcepción generada en CancionDAO.obtenerCanciones(): ");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return listaCanciones;
+        }
+
         public bool registrarCancion(Cancion cancion)
         {
             bool resultado = false;

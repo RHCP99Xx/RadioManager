@@ -37,11 +37,13 @@
                     RenderTransformOrigin="0.133,-0.156" 
                     Height="35" Background="{x:Null}">
                 <materialDesign:PackIcon 
+                    x:Name="btnPrincipal"
                     Kind="Home"
                     materialDesign:ShadowAssist.Darken="True"
                     VerticalAlignment="Center" 
                     HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"
+                    MouseDoubleClick="btnPrincipal_MouseDoubleClick"/>
             </Button>
 
         </Grid>
@@ -116,7 +118,7 @@
             </Button>
 
         </Grid>
-        <ListView x:Name="lvArtistas" ItemsSource="{Binding Artistas}" HorizontalAlignment="Left" Height="259" Margin="128,129,0,0" VerticalAlignment="Top" Width="628" FontSize="16" SelectionChanged="lvArtistas_SelectionChanged">
+        <ListView x:Name="lvArtistas" ItemsSource="{Binding Artistas}" HorizontalAlignment="Left" Height="259" Margin="128,129,0,0" VerticalAlignment="Top" Width="628" FontSize="16" MouseDoubleClick="lvArtistas_MouseDoubleClick">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nombre artístico" DisplayMemberBinding="{Binding Nombre}" Width="auto"/>
