@@ -31,7 +31,6 @@ namespace RadioManager.GUI
             {
                 if (!string.IsNullOrEmpty(password))
                 {
-
                     bool isLogged = usuario.login(email, password);
                     if (isLogged)
                     {
@@ -41,9 +40,9 @@ namespace RadioManager.GUI
                         {
                             if (creativoPOCO.Activo)
                             {
-                                ArtistMainWindow mainArtist = new ArtistMainWindow();
+                                MenuPrincipal menuCreativo = new MenuPrincipal(creativoPOCO);
                                 this.Hide();
-                                mainArtist.Show();
+                                menuCreativo.Show();
                             }
                             else
                             {
@@ -57,9 +56,9 @@ namespace RadioManager.GUI
                             {
                                 if (operadorPOCO.Activo)
                                 {
-                                    IMenuCanciones menuCanciones = new IMenuCanciones();
+                                    MenuPrincipal menuCreativo = new MenuPrincipal(operadorPOCO);
                                     this.Hide();
-                                    menuCanciones.Show();
+                                    menuCreativo.Show();
                                 }
                                 else
                                 {
@@ -84,17 +83,21 @@ namespace RadioManager.GUI
                     }
                     else
                     {
-                        MessageBox.Show("Algunos campos se encuentran vacíos", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        this.emailBox.BorderBrush = Brushes.Black;
-                        this.passwordBox.BorderBrush = Brushes.Red;
+                        MessageBox.Show("Ha ocurrido un error con el inicio de sesión, inténtelo más tarde", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("El correo electrónico no tiene una estructura correcta", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    this.emailBox.BorderBrush = Brushes.Red;
-                    this.passwordBox.BorderBrush = Brushes.Black;
+                    MessageBox.Show("Algunos campos se encuentran vacíos", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    this.emailBox.BorderBrush = Brushes.Black;
+                    this.passwordBox.BorderBrush = Brushes.Red;
                 }
+            }
+            else
+            {
+                MessageBox.Show("El correo electrónico no tiene una estructura correcta", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                this.emailBox.BorderBrush = Brushes.Red;
+                this.passwordBox.BorderBrush = Brushes.Black;
             }
         }
     }

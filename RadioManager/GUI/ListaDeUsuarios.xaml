@@ -58,12 +58,13 @@
         </Grid>
         <Grid Width="80" HorizontalAlignment="Left" Background="#FFEB7A7A" Margin="0,50,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="136*"/>
+                <RowDefinition Height="54*"/>
+                <RowDefinition Height="76*"/>
+                <RowDefinition Height="76*"/>
+                <RowDefinition Height="77*"/>
+                <RowDefinition Height="76*"/>
+                <RowDefinition Height="61*"/>
+                <RowDefinition Height="147*"/>
             </Grid.RowDefinitions>
             <Button BorderBrush="{x:Null}" 
                     HorizontalAlignment="Left"
@@ -133,6 +134,22 @@
                 <Button.ToolTip>
                     Géneros
                 </Button.ToolTip>
+            </Button>
+            <Button BorderBrush="{x:Null}" 
+                HorizontalAlignment="Left"
+                Padding="0"
+                Margin="20,10,0,0" 
+                VerticalAlignment="Top" 
+                Width="35" 
+                RenderTransformOrigin="0.133,-0.156" 
+                Height="35" Background="{x:Null}" Grid.Row="4">
+                <Button.ToolTip>Reportes</Button.ToolTip>
+                <materialDesign:PackIcon 
+                    Kind="FileReport"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
             </Button>
 
         </Grid>

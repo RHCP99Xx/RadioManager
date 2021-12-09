@@ -195,6 +195,10 @@
     <Compile Include="GUI\IRegistrarCancion.xaml.cs">
       <DependentUpon>IRegistrarCancion.xaml</DependentUpon>
     </Compile>
+    <Page Include="GUI\MenuPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\RegistrarArtista.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -205,6 +209,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\MenuPrincipal.xaml.cs">
+      <DependentUpon>MenuPrincipal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\RegistrarArtista.xaml.cs">
       <DependentUpon>RegistrarArtista.xaml</DependentUpon>
     </Compile>
