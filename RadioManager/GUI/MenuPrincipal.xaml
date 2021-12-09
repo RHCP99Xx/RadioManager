@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:RadioManager.GUI"
         mc:Ignorable="d"
-        Title="MenuPrincipal" Height="450" Width="800">
+        Title="MenuPrincipal" ResizeMode="NoResize" Height="450" Width="800">
     <Grid>
         <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">
             <Grid.ColumnDefinitions>
@@ -28,13 +28,14 @@
                        VerticalAlignment="Top" 
                        Height="25" Width="561" Grid.Column="1"/>
             <Button BorderBrush="{x:Null}" 
+                x:Name="buttonSalir"    
                 HorizontalAlignment="Left"
                 Padding="0"
                 Margin="23,5,0,0" 
                 VerticalAlignment="Top" 
                 Width="35" 
                 RenderTransformOrigin="0.133,-0.156" 
-                Height="35" Background="{x:Null}" Grid.Column="2">
+                Height="35" Background="{x:Null}" Grid.Column="2" Click="buttonSalir_Click">
                 <materialDesign:PackIcon 
                     Kind="Logout"
                     materialDesign:ShadowAssist.Darken="True"
@@ -55,16 +56,18 @@
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="50*"/>
-                <RowDefinition Height="85*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="35*"/>
             </Grid.RowDefinitions>
             <Button BorderBrush="{x:Null}" 
+                    x:Name="buttonPatrones"
                     HorizontalAlignment="Left"
                     Padding="0"
                     Margin="20,10,0,0" 
                     VerticalAlignment="Top" 
                     Width="35" 
                     RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}" Grid.Row="1">
+                    Height="35" Background="{x:Null}" Grid.Row="1" Click="buttonPatrones_Click">
                 <materialDesign:PackIcon 
                     Kind="FormatListBulletedType"
                     materialDesign:ShadowAssist.Darken="True"
@@ -76,13 +79,14 @@
                 </Button.ToolTip>
             </Button>
             <Button BorderBrush="{x:Null}" 
+                    x:Name="buttonProgramas"
                     HorizontalAlignment="Left"
                     Padding="0"
                     Margin="20,10,0,0" 
                     VerticalAlignment="Top" 
                     Width="35" 
                     RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}" Grid.Row="2">
+                    Height="35" Background="{x:Null}" Grid.Row="2" Click="buttonProgramas_Click">
                 <materialDesign:PackIcon 
                     Kind="ClipboardListOutline"
                     materialDesign:ShadowAssist.Darken="True"
@@ -94,13 +98,14 @@
                 </Button.ToolTip>
             </Button>
             <Button BorderBrush="{x:Null}" 
+                    x:Name="buttonArtistas"
                     HorizontalAlignment="Left"
                     Padding="0"
                     Margin="20,10,0,0" 
                     VerticalAlignment="Top" 
                     Width="35" 
                     RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}" Grid.Row="3">
+                    Height="35" Background="{x:Null}" Grid.Row="3" Click="buttonArtistas_Click">
                 <materialDesign:PackIcon 
                     Kind="Artist"
                     materialDesign:ShadowAssist.Darken="True"
@@ -112,13 +117,14 @@
                 </Button.ToolTip>
             </Button>
             <Button BorderBrush="{x:Null}" 
+                x:Name="buttonCanciones"
                 HorizontalAlignment="Left"
                 Padding="0"
                 Margin="20,10,0,0" 
                 VerticalAlignment="Top" 
                 Width="35" 
                 RenderTransformOrigin="0.133,-0.156" 
-                Height="35" Background="{x:Null}" Grid.Row="4">
+                Height="35" Background="{x:Null}" Grid.Row="5" Click="buttonCanciones_Click">
                 <materialDesign:PackIcon 
                     Kind="Music"
                     materialDesign:ShadowAssist.Darken="True"
@@ -129,14 +135,15 @@
                     Canciones
                 </Button.ToolTip>
             </Button>
-            <Button BorderBrush="{x:Null}" 
+            <Button BorderBrush="{x:Null}"
+                x:Name="buttonUsuarios"
                 HorizontalAlignment="Left"
                 Padding="0"
                 Margin="20,10,0,0" 
                 VerticalAlignment="Top" 
                 Width="35" 
                 RenderTransformOrigin="0.133,-0.156" 
-                Height="35" Background="{x:Null}" Grid.Row="5">
+                Height="35" Background="{x:Null}" Grid.Row="6" Click="buttonUsuarios_Click">
                 <materialDesign:PackIcon 
                     Kind="AccountDetails"
                     materialDesign:ShadowAssist.Darken="True"
@@ -146,6 +153,23 @@
                 <Button.ToolTip>
                     Usuarios
                 </Button.ToolTip>
+            </Button>
+            <Button BorderBrush="{x:Null}" 
+                x:Name="buttonReportes"
+                HorizontalAlignment="Left"
+                Padding="0"
+                Margin="20,10,0,0" 
+                VerticalAlignment="Top" 
+                Width="35" 
+                RenderTransformOrigin="0.133,-0.156" 
+                Height="35" Background="{x:Null}" Grid.Row="4" Click="buttonReportes_Click">
+                <Button.ToolTip>Reportes</Button.ToolTip>
+                <materialDesign:PackIcon 
+                    Kind="FileDocument"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
             </Button>
 
         </Grid>

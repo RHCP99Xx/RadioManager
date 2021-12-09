@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:RadioManager"
              xmlns:materialDesign="https://materialdesigninxaml.net/winfx/xaml/themes"
 
-             StartupUri="GUI/MenuPrincipal.xaml">
+             StartupUri="GUI/Login.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
