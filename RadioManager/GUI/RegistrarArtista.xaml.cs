@@ -25,8 +25,6 @@ namespace RadioManager.GUI
     {
         string imagenSeleccionada = "";
         byte[] byteImagen = null;
-
-
         public RegistrarArtista()
         {
             InitializeComponent();

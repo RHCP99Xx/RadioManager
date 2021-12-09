@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RadioManager.Models.DAO
 {
@@ -156,15 +157,26 @@ namespace RadioManager.Models.DAO
             try
             {
                 conn = ConexionDB.getConnection();
+
+                Artista artistaRepetido = getArtistaPorNombre(artista.NombreArtistico);
+
                 if (conn != null)
                 {
-                    using (MySqlCommand command = new MySqlCommand("INSERT INTO radio_manager.cantante VALUES(NULL, '" + artista.NombreArtistico + "', " + "@data" + ", '"+ artista.Descripcion + "', TRUE);", conn))
+                    if (!artistaRepetido.Equals(artistaRepetido))
                     {
-                        command.Parameters.AddWithValue("@data", artista.Fotografia);
-                        command.ExecuteNonQuery();
-                    }
+                        using (MySqlCommand command = new MySqlCommand("INSERT INTO radio_manager.cantante VALUES(NULL, '" + artista.NombreArtistico + "', " + "@data" + ", '" + artista.Descripcion + "', TRUE);", conn))
+                        {
+                            command.Parameters.AddWithValue("@data", artista.Fotografia);
+                            command.ExecuteNonQuery();
+                        }
 
-                    registrado = true;
+                        registrado = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ya existe un artista con ese nombre.");
+                    }
+                    
                 }
             }
             catch (Exception e)
