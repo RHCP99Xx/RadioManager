@@ -234,11 +234,18 @@
     <Compile Include="GUI\MenuProgramas.xaml.cs">
       <DependentUpon>MenuProgramas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\IConsultarCancionesAlAire.xaml.cs">
+      <DependentUpon>IConsultarCancionesAlAire.xaml</DependentUpon>
+    </Compile>
     <Page Include="GUI\RegistrarArtista.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\RegistrarUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\IConsultarCancionesAlAire.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

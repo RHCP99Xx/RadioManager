@@ -1,0 +1,158 @@
+﻿ <Window x:Class="RadioManager.GUI.EditarAlAire"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RadioManager"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Edición de canción al Aire" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None"><Grid>
+    <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="315*"/>
+            <ColumnDefinition Width="40*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="1"
+                       x:Name="windowTitle"
+                       HorizontalAlignment="Center" 
+                       TextAlignment="Center" 
+                       FontSize="20" 
+                       FontFamily="Roboto" 
+                       FontWeight="Bold" 
+                       Foreground="White" 
+                       Margin="10,15,10,0" 
+                       TextWrapping="Wrap" 
+                       Text="Editar Canción al Aire" 
+                       VerticalAlignment="Top" 
+                       Height="25" Width="613"/>
+        <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}">
+            <materialDesign:PackIcon 
+                    Kind="Home"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+        </Button>
+
+    </Grid>
+    <Grid Width="80" HorizontalAlignment="Left" Background="#FFEB7A7A" Margin="0,50,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="136*"/>
+        </Grid.RowDefinitions>
+        <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="1">
+            <materialDesign:PackIcon 
+                    Kind="MusicNote"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+        </Button>
+        <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="1">
+            <materialDesign:PackIcon 
+                    Kind="MusicNote"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+        </Button>
+        <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="2">
+            <materialDesign:PackIcon 
+                    Kind="Artist"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+        </Button>
+        <Button BorderBrush="{x:Null}" 
+                    HorizontalAlignment="Left"
+                    Padding="0"
+                    Margin="20,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="35" 
+                    RenderTransformOrigin="0.133,-0.156" 
+                    Height="35" Background="{x:Null}" Grid.Row="3">
+            <materialDesign:PackIcon 
+                    Kind="PlaylistMusic"
+                    materialDesign:ShadowAssist.Darken="True"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
+        </Button>
+
+    </Grid>
+    <StackPanel
+            Margin="99,195,541,57">
+        <CheckBox x:Name="cbLunes"
+                IsChecked="False"
+                Content="Lunes"
+                Padding="5"/>
+        <CheckBox x:Name="cbMartes"
+                IsChecked="False"
+                Content="Martes"
+                Padding="5"/>
+        <CheckBox x:Name="cbMiercoles"
+                IsChecked="False"
+                Content="Miércoles" Padding="5" />
+        <CheckBox x:Name="cbJueves"
+                IsChecked="False"
+                Content="Jueves" Padding="5"/>
+        <CheckBox x:Name="cbViernes"
+                IsChecked="False"
+                Content="Viernes" Padding="5"/>
+        <CheckBox x:Name="cbSabado"
+                IsChecked="False"
+                Content="Sábado" Padding="5" />
+        <CheckBox x:Name="cbDomingo"
+                IsChecked="False"
+                Content="Domingo" Padding="5"/>
+    </StackPanel>
+    <Label Content="Seleccione los días que podrá salir al aire" Margin="99,143,328,274" Foreground="#FFEB7A7A" FontSize="20"/>
+    <Label x:Name="lbNombrePrograma" Content="Nombre del programa" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="99,73,0,0" VerticalAlignment="Top" FontSize="24" Width="494" Foreground="#FFEB7A7A" Height="41" FontStyle="Italic" FontWeight="Bold"/>
+    <Button
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+            x:Name="btnEditar"
+            Content="Subir al Aire"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="613,137,53,274" Height="Auto" Background="#FFEB7A7A" BorderBrush="#FFEB7A7A" Click="btnGuardar_Click" />
+    <Button
+            Style="{StaticResource MaterialDesignPaperDarkButton}"
+            ToolTip="Resource name: MaterialDesignPaperDarkButton"
+            Content="Cancelar"
+            x:Name="btnCancelar"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Height="Auto" Margin="613,354,53,57" BorderBrush="#FFEB7A7A" Click="btnCancelar_Click" />
+</Grid>
+</Window>
