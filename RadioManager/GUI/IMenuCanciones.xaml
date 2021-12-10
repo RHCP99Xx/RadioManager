@@ -70,6 +70,7 @@
         <TextBox x:Name="txtBuscarCancion" TextChanged="txtBuscarCancion_TextChanged" KeyDown="txtBuscarCancion_KeyDown"
             HorizontalAlignment="Left" Height="28" Margin="519,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221"
                  materialDesign:HintAssist.Hint="Título de la canción" 
+                 
                  materialDesign:HintAssist.HelperText="Presione Enter para buscar"
                  FontFamily="Roboto" FontSize="14px"/>
     </Grid>

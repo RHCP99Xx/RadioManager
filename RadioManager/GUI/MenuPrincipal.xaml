@@ -6,6 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:RadioManager.GUI"
         mc:Ignorable="d"
+        WindowStyle="ToolWindow"
         Title="MenuPrincipal" ResizeMode="NoResize" Height="450" Width="800">
     <Grid>
         <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">

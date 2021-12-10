@@ -79,6 +79,7 @@
             ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
             x:Name="btnVerLista"
             Content="Ver Lista"
+            Visibility="Hidden"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="665,209,25,173" Height="Auto" Background="#FFEB7A7A" BorderBrush="#FFEB7A7A" Click="btnVerLista_Click"/>
     </Grid>
 </Window>
