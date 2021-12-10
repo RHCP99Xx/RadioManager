@@ -33,9 +33,6 @@ namespace RadioManager.GUI
             DataContext = this;
             cancionSeleccionada = cancion;
             llenarCombos();
-            llenarComboCategorias();
-            llenarComboGeneros();
-            llenarComboEstado();
             mostrarInformacionCancion();
         }
 
