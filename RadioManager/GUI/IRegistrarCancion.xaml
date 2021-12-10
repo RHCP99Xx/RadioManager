@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RadioManager.GUI"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         mc:Ignorable="d"
-        Title="IRegistrarCancion" Height="450" Width="800">
+        Title="IRegistrarCancion" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Height="450" Width="800">
     <Grid>
         <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">
             <Grid.ColumnDefinitions>
@@ -27,24 +27,6 @@
                        Text="Registrar canción" 
                        VerticalAlignment="Top" 
                        Height="25" Width="613"/>
-            <Button BorderBrush="{x:Null}" 
-                    x:Name="btnHome"
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Margin="20,10,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="35" 
-                    RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}"
-                    Click="btnHome_Click"
-                    Cursor="Hand">
-                <materialDesign:PackIcon 
-                    Kind="Home"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-            </Button>
         </Grid>
         <Grid Width="80" HorizontalAlignment="Left" Background="#FFEB7A7A" Margin="0,50,0,0">
             <Grid.RowDefinitions>
@@ -55,58 +37,6 @@
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="136*"/>
             </Grid.RowDefinitions>
-            <Button BorderBrush="{x:Null}" 
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Margin="20,10,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="35" 
-                    RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}" Grid.Row="1"
-                    IsEnabled="False">
-                <materialDesign:PackIcon 
-                    Kind="MusicNote"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-            </Button>
-            <Button BorderBrush="{x:Null}" 
-                    x:Name="btnArtista"
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Margin="20,10,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="35" 
-                    RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}" Grid.Row="2"
-                    Click="btnArtista_Click"
-                    Cursor="Hand">
-                <materialDesign:PackIcon 
-                    Kind="Artist"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-            </Button>
-            <Button BorderBrush="{x:Null}"
-                    x:Name="btnPatrones"
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Margin="20,10,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="35" 
-                    RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}" Grid.Row="3"
-                    Click="btnPatrones_Click"
-                    Cursor="Hand">
-                <materialDesign:PackIcon 
-                    Kind="PlaylistMusic"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-            </Button>
         </Grid>
 
         <Ellipse x:Name="imagenCancion" Fill="#FFF0F0F0" HorizontalAlignment="Left" Height="205" Margin="515,97,0,0" Stroke="#FFEB7A7A" VerticalAlignment="Top" Width="205" StrokeThickness="3" />

@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Closing="Window_Closing"
         WindowStyle="ToolWindow"
-        Title="DetallesDeUsuario" Height="450" Width="800">
+        Title="DetallesDeUsuario" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid Width="794" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FFEB7A7A">
             <Grid.ColumnDefinitions>

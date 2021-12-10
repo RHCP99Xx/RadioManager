@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using RadioManager.Models.BD;
 using RadioManager.Models.POCO;
 using System;
