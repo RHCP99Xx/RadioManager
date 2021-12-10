@@ -8,6 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+/// <summary>
+/// /
+/// </summary>
 namespace RadioManager.Models.DAO
 {
     class LineaPatronDAO
