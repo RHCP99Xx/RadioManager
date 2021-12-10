@@ -70,9 +70,9 @@ namespace RadioManager.GUI
                                 Usuario usuarioPOCO = usuario.esAdminLogin(email);
                                 if (usuarioPOCO.Nombre != null)
                                 {
-                                    ListaDeUsuarios listaUsuarios = new ListaDeUsuarios();
+                                    MenuPrincipal menuAdmin = new MenuPrincipal(usuarioPOCO);
                                     this.Hide();
-                                    listaUsuarios.Show();
+                                    menuAdmin.Show();
                                 }
                                 else
                                 {

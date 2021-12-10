@@ -12,7 +12,7 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="Roboto"
-
+        ResizeMode="NoResize"
     mc:Ignorable="d"
         Title="Login" Height="640" Width="480">
     <Grid Margin="0,0,0,0">
@@ -50,16 +50,5 @@
             ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
             Content="Iniciar Sesión"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Grid.Column="1" Margin="107,10,107,8" Grid.Row="3" Height="Auto" Background="#FFEB7A7A" BorderBrush="#FFEB7A7A" Click="Button_Click" />
-        <Button 
-            Content="¿Olvidaste tu contraseña?, haz clic aquí" 
-            Grid.Column="1" 
-            HorizontalAlignment="Left" 
-            Margin="10,7,0,0" 
-            Grid.Row="4" 
-            VerticalAlignment="Top" 
-            Width="324" Height="20"
-            FontSize="10"
-            Background="{x:Null}" 
-            BorderBrush="{x:Null}" Foreground="#FFEB8557"/>
     </Grid>
 </Window>

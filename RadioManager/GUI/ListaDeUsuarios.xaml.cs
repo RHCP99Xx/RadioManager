@@ -126,10 +126,6 @@ namespace RadioManager.GUI
             }
         }
 
-        private void Window_Closing(object sender, CancelEventArgs e)
-        {
-            System.Environment.Exit(0);
-        }
 
         private void Button_Registrar(object sender, RoutedEventArgs e)
         {

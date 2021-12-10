@@ -28,21 +28,6 @@
                        Text="REGISTRO" 
                        VerticalAlignment="Top" 
                        Height="25" Width="703" Grid.ColumnSpan="2"/>
-            <Button BorderBrush="{x:Null}" 
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Margin="20,10,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="35" 
-                    RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}">
-                <materialDesign:PackIcon 
-                    Kind="Home"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-            </Button>
 
         </Grid>
         <Grid Width="80" HorizontalAlignment="Left" Background="#FFEB7A7A" Margin="0,50,0,0">
@@ -54,66 +39,6 @@
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="136*"/>
             </Grid.RowDefinitions>
-            <Button BorderBrush="{x:Null}" 
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Margin="20,10,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="35" 
-                    RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}" Grid.Row="1">
-                <materialDesign:PackIcon 
-                    Kind="MusicNote"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-            </Button>
-            <Button BorderBrush="{x:Null}" 
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Margin="20,10,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="35" 
-                    RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}" Grid.Row="1">
-                <materialDesign:PackIcon 
-                    Kind="MusicNote"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-            </Button>
-            <Button BorderBrush="{x:Null}" 
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Margin="20,10,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="35" 
-                    RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}" Grid.Row="2">
-                <materialDesign:PackIcon 
-                    Kind="Artist"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-            </Button>
-            <Button BorderBrush="{x:Null}" 
-                    HorizontalAlignment="Left"
-                    Padding="0"
-                    Margin="20,10,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="35" 
-                    RenderTransformOrigin="0.133,-0.156" 
-                    Height="35" Background="{x:Null}" Grid.Row="3">
-                <materialDesign:PackIcon 
-                    Kind="PlaylistMusic"
-                    materialDesign:ShadowAssist.Darken="True"
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center" 
-                    Width="30" Height="30" RenderTransformOrigin="0.933,3.1"/>
-            </Button>
 
         </Grid>
 
