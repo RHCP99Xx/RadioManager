@@ -173,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GUI\EditarAlAire.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\MenuProgramas.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -189,6 +193,9 @@
     </Compile>
     <Compile Include="GUI\AsignarPatron.xaml.cs">
       <DependentUpon>AsignarPatron.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\EditarAlAire.xaml.cs">
+      <DependentUpon>EditarAlAire.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\DetallesDeUsuario.xaml.cs">
       <DependentUpon>DetallesDeUsuario.xaml</DependentUpon>
