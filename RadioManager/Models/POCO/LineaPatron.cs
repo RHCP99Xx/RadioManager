@@ -10,8 +10,14 @@ namespace RadioManager.Models.POCO
     {
         private int idLineaPatron;
         private int posicion;
+        private Categoria categoria;
+        private Genero genero;
+        private int idPatron;
 
-        public int IdLineaPatron { get => idLineaPatron; set => idLineaPatron = value;  }
+        public int IdLineaPatron { get => idLineaPatron; set => idLineaPatron = value; }
         public int Posicion { get => posicion; set => posicion = value; }
+        public Genero Genero { get => genero; set => genero = value; }
+        public int IdPatron { get => idPatron; set => idPatron = value; }
+        internal Categoria Categoria { get => categoria; set => categoria = value; }
     }
 }
