@@ -110,6 +110,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="GUI\AgregarPatron.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\ArtistInfo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -129,6 +133,10 @@
     <Page Include="GUI\EditarArtista.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\EditarPatron.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\EditarUsuario.xaml">
       <SubType>Designer</SubType>
@@ -182,6 +190,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GUI\AgregarPatron.xaml.cs">
+      <DependentUpon>AgregarPatron.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ArtistInfo.xaml.cs">
       <DependentUpon>ArtistInfo.xaml</DependentUpon>
     </Compile>
@@ -196,6 +207,9 @@
     </Compile>
     <Compile Include="GUI\EditarArtista.xaml.cs">
       <DependentUpon>EditarArtista.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\EditarPatron.xaml.cs">
+      <DependentUpon>EditarPatron.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\EditarUsuario.xaml.cs">
       <DependentUpon>EditarUsuario.xaml</DependentUpon>
@@ -238,6 +252,14 @@
     <Compile Include="GUI\MenuProgramas.xaml.cs">
       <DependentUpon>MenuProgramas.xaml</DependentUpon>
     </Compile>
+    <Page Include="GUI\MenuReportes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\Patrones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\RegistrarArtista.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -246,16 +268,36 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\ReporteCancionesSinUsar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ReporteGeneralCanciones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GUI\MenuPrincipal.xaml.cs">
       <DependentUpon>MenuPrincipal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\MenuReportes.xaml.cs">
+      <DependentUpon>MenuReportes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Patrones.xaml.cs">
+      <DependentUpon>Patrones.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\RegistrarArtista.xaml.cs">
       <DependentUpon>RegistrarArtista.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\RegistrarUsuario.xaml.cs">
       <DependentUpon>RegistrarUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ReporteCancionesSinUsar.xaml.cs">
+      <DependentUpon>ReporteCancionesSinUsar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ReporteGeneralCanciones.xaml.cs">
+      <DependentUpon>ReporteGeneralCanciones.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\EncryptDataPackage\EncryptData.cs" />
     <Compile Include="Helpers\Validadores\Validator.cs" />
@@ -264,6 +306,8 @@
     <Compile Include="Models\DAO\CancionDAO.cs" />
     <Compile Include="Models\DAO\CategoriaDAO.cs" />
     <Compile Include="Models\DAO\GeneroDAO.cs" />
+    <Compile Include="Models\DAO\LineaPatronDAO.cs" />
+    <Compile Include="Models\DAO\PatronDAO.cs" />
     <Compile Include="Models\DAO\UsuarioDAO.cs" />
     <Compile Include="Models\POCO\Artista.cs" />
     <Compile Include="Models\POCO\Cancion.cs" />
@@ -271,6 +315,7 @@
     <Compile Include="Models\POCO\Creativo.cs" />
     <Compile Include="Models\POCO\Genero.cs" />
     <Compile Include="Models\POCO\LineaPatron.cs" />
+    <Compile Include="Models\POCO\LineaPatronReporte.cs" />
     <Compile Include="Models\POCO\Operador.cs" />
     <Compile Include="Models\POCO\Patron.cs" />
     <Compile Include="Models\POCO\PatronPrograma.cs" />
