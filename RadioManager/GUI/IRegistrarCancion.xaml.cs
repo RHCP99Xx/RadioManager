@@ -31,9 +31,7 @@ namespace RadioManager.GUI
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            llenarComboArtistas();
-            llenarComboCategorias();
-            llenarComboGeneros();
+            llenarCombos();
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
@@ -53,10 +51,13 @@ namespace RadioManager.GUI
 
         private void btnGuardarCancion_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtTituloCancion.Text) || string.IsNullOrWhiteSpace(txtClaveCancion.Text))
+            if (estanLosCamposVacios())
             {
                 txtTituloCancion.BorderBrush = Brushes.Red;
                 txtClaveCancion.BorderBrush = Brushes.Red;
+                comboArtista.BorderBrush = Brushes.Red;
+                comboGenero.BorderBrush = Brushes.Red;
+                comboCategoria.BorderBrush = Brushes.Red;
                 MessageBox.Show("Favor de llenar todos los campos.");
             } else if (txtTituloCancion.Text.Length > 200)
             {
@@ -133,20 +134,22 @@ namespace RadioManager.GUI
             }
         }
 
-        private void llenarComboArtistas()
+        private void llenarCombos()
         {
             ArtistaDAO artistaDAO = new ArtistaDAO();
             comboArtista.ItemsSource = artistaDAO.getArtistas();
-        }
-        private void llenarComboGeneros()
-        {
+
             GeneroDAO generoDAO = new GeneroDAO();
             comboGenero.ItemsSource = generoDAO.obtenerGeneros();
-        }
-        private void llenarComboCategorias()
-        {
+
             CategoriaDAO categoriaDAO = new CategoriaDAO();
             comboCategoria.ItemsSource = categoriaDAO.obtenerCategorias();
+        }
+
+        private bool estanLosCamposVacios()
+        {
+            return string.IsNullOrWhiteSpace(txtTituloCancion.Text) || string.IsNullOrWhiteSpace(txtClaveCancion.Text) || string.IsNullOrEmpty(comboArtista.Text) 
+                || string.IsNullOrEmpty(comboCategoria.Text) || string.IsNullOrEmpty(comboGenero.Text);
         }
     }
 }

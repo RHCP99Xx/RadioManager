@@ -32,7 +32,7 @@ namespace RadioManager.GUI
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             DataContext = this;
             cancionSeleccionada = cancion;
-            llenarComboArtistas();
+            llenarCombos();
             llenarComboCategorias();
             llenarComboGeneros();
             llenarComboEstado();
@@ -146,23 +146,17 @@ namespace RadioManager.GUI
                 imagenCancion.Fill = imageBrush;
             }
         }
-        private void llenarComboArtistas()
+        private void llenarCombos()
         {
             ArtistaDAO artistaDAO = new ArtistaDAO();
             comboArtista.ItemsSource = artistaDAO.getArtistas();
-        }
-        private void llenarComboGeneros()
-        {
+
             GeneroDAO generoDAO = new GeneroDAO();
             comboGenero.ItemsSource = generoDAO.obtenerGeneros();
-        }
-        private void llenarComboCategorias()
-        {
+
             CategoriaDAO categoriaDAO = new CategoriaDAO();
             comboCategoria.ItemsSource = categoriaDAO.obtenerCategorias();
-        }
-        private void llenarComboEstado()
-        {
+
             List<string> listaEstado = new List<string>();
             listaEstado.Add("Activo");
             listaEstado.Add("Inactivo");
