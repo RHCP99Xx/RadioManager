@@ -51,6 +51,9 @@ namespace RadioManager.GUI
             if (cancionSeleccionada.Dias.Equals("1234567"))
             {
                 lblDiasCancion.Content = "Todos los días";
+            } else if (cancionSeleccionada.Dias.Equals(""))
+            {
+                lblDiasCancion.Content = "No está al aire";
             }
             else
             {
