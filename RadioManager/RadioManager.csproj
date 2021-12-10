@@ -286,6 +286,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\ReporteGeneralCanciones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\IConsultarCancionesAlAire.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
