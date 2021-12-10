@@ -363,5 +363,96 @@ namespace RadioManager.Models.DAO
             return canciones;
         }
 
+        public List<Cancion> obtenerCancionesFueraAire()
+        {
+            List<Cancion> listaCanciones = new List<Cancion>();
+            MySqlConnection conn = null;
+
+            try
+            {
+                conn = ConexionDB.getConnection();
+                if (conn != null)
+                {
+                    MySqlCommand command;
+                    MySqlDataReader dataReader;
+                    String query = "SELECT cancion.*, categoria.nombreCategoria, genero.nombreGenero, cantante.nombreArtistico FROM cancion " +
+                        "LEFT JOIN categoria ON cancion.idCategoria = categoria.idCategoria " +
+                        "LEFT JOIN genero ON cancion.isGenero = genero.idGenero " +
+                        "LEFT JOIN cantante ON cancion.idCantante = cantante.idCantante " +
+                        "WHERE cancion.activo = 1 AND cancion.alAire = 0;";
+                    command = new MySqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        Cancion cancion = new Cancion();
+
+                        cancion.IdCancion = !dataReader.IsDBNull(0) ? dataReader.GetInt32(0) : 0;
+                        cancion.Titulo = !dataReader.IsDBNull(1) ? dataReader.GetString(1) : "";
+                        cancion.IdCategoria = !dataReader.IsDBNull(2) ? dataReader.GetInt32(2) : 0;
+                        cancion.IdGenero = !dataReader.IsDBNull(3) ? dataReader.GetInt32(3) : 0;
+                        cancion.Clave = !dataReader.IsDBNull(4) ? dataReader.GetString(4) : "";
+                        cancion.Dias = !dataReader.IsDBNull(5) ? dataReader.GetString(5) : "";
+                        cancion.IdCantante = !dataReader.IsDBNull(6) ? dataReader.GetInt32(6) : 0;
+                        cancion.Activo = !dataReader.IsDBNull(7) ? dataReader.GetBoolean(7) : false;
+                        cancion.AlAire = !dataReader.IsDBNull(8) ? dataReader.GetBoolean(8) : false;
+                        cancion.Imagen = !dataReader.IsDBNull(9) ? (byte[])dataReader.GetValue(9) : null;
+
+                        cancion.NombreCategoria = !dataReader.IsDBNull(10) ? dataReader.GetString(10) : "";
+                        cancion.NombreGenero = !dataReader.IsDBNull(11) ? dataReader.GetString(11) : "";
+                        cancion.NombreArtista = !dataReader.IsDBNull(12) ? dataReader.GetString(12) : "";
+
+                        listaCanciones.Add(cancion);
+                    }
+                    dataReader.Close();
+                    command.Dispose();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nExcepción generada en CancionDAO.obtenerCancionesFueraAire(): ");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return listaCanciones;
+        }
+
+        public bool editarDias(Cancion cancion)
+        {
+            bool diasEditados = false;
+            MySqlConnection conn = null;
+
+            try
+            {
+                conn = ConexionDB.getConnection();
+                if (conn != null)
+                {
+                    using (MySqlCommand command = new MySqlCommand("UPDATE `radio_manager`.`cancion` SET `dias` ='" + cancion.Dias + "', `alAire` = TRUE WHERE `idCancion` = " + cancion.IdCancion + ";", conn))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    diasEditados = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return diasEditados;
+        }
     }
 }
